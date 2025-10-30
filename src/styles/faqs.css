@@ -1,0 +1,142 @@
+.accordion {
+
+    margin: 0 auto;
+       background-color: #F5F1E8;
+    padding: 80px 100px;
+}
+
+.accordion-item {
+    border-bottom: 1px solid #e5e5e5;
+    transition: all 0.3s ease;
+    margin: 0 300px;
+
+}
+
+.accordion-item:last-child {
+    border-bottom: none;
+}
+
+/*********** Texto ***********/
+.textos-faqs h2{
+font-family: "Open Sans", sans-serif;
+font-weight: 400;
+font-size: 34px;
+color: black;
+line-height: 48px;
+margin-bottom: 50px;
+text-align: center;
+
+}
+
+/********** Header del acordeón **********/
+.accordion-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 28px 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.3s ease;
+}
+
+.accordion-header:hover {
+    opacity: 0.8;
+}
+
+.accordion-question {
+    font-family: "Open Sans", sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: #2C2C2C;
+    line-height: 1.4;
+    padding-right: 20px;
+}
+
+/********** Iconos + y - **********/
+.accordion-icon {
+    position: relative;
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+}
+
+.icon-plus,
+.icon-minus {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+    font-weight: 300;
+    color: #D4A054;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.icon-minus {
+    opacity: 0;
+}
+
+/* Cuando está activo, mostrar minus y ocultar plus */
+.accordion-item.active .icon-plus {
+    opacity: 0;
+    transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.accordion-item.active .icon-minus {
+    opacity: 1;
+}
+
+/********** Contenido **********/
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.4s ease;
+}
+
+.accordion-item.active .accordion-content {
+    max-height: 500px; /* Ajustar según el contenido más largo */
+    padding-bottom: 28px;
+}
+
+.accordion-content p {
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
+    color: #666;
+    line-height: 1.7;
+    margin: 0;
+    padding-right: 40px;
+}
+
+/********** Responsive **********/
+@media (max-width: 801px) {
+
+    .accordion {
+    padding: 20px 18px;
+}
+
+.accordion-item {
+
+    margin: 0;
+
+}
+
+    .accordion-question {
+        font-size: 17px;
+    }
+
+    .accordion-content p {
+        font-size: 15px;
+        padding-right: 20px;
+    }
+
+    .accordion-header {
+        padding: 22px 0;
+    }
+
+    .accordion-item.active .accordion-content {
+        padding-bottom: 22px;
+    }
+}

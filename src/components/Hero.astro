@@ -1,0 +1,28 @@
+---
+import '../styles/hero.css'
+import ImgHero from '../assets/casa.avif'
+---
+
+<section class="hero">
+    <div class="conthero">
+        <h1 class="fade-in-up delay-1">Encuentra tu <span style="color:#D4A054">hogar</span> en el <span style="color:#D4A054">lugar</span> que te mereces.</h1>
+        <p class="fade-in-up delay-2">Explore quality, affordable homes designed to last generations.</p>
+        <div class="btn-container"> <a class="fade-in-up delay-3"> <i class="bi bi-house-up"></i> Ver departamentos</a></div>
+       
+        
+     
+    </div>
+
+    <div class="hero-image-cont">
+           <img 
+        src={ImgHero.src}
+        alt="Departamento"
+        class="hero-image"
+        id="heroImage"
+        />
+    </div>
+
+    <script>
+  import '../scripts/hero.js'
+    </script>
+</section>

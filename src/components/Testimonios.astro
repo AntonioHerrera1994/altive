@@ -1,0 +1,194 @@
+---
+import '../styles/testimonios.css'
+
+const testimonials = [
+    {
+        id: 1,
+        title: 'Trustworthy and transparent real estate brand.',
+        text: 'HavenSpot made buying a home stress-free. What stood out was how honest and clear the entire process was. No hidden fees, no shady deals—just clean, reliable service.',
+        author: 'Michael Stuart',
+        position: 'Proud Husband'
+    },
+    {
+        id: 2,
+        title: 'Exceptional service and professionalism.',
+        text: 'Working with this team was an absolute pleasure. They guided us through every step of the home buying process with patience and expertise. Highly recommended!',
+        author: 'Sarah Johnson',
+        position: 'Happy Homeowner'
+    },
+    {
+        id: 3,
+        title: 'Made our dream home a reality.',
+        text: 'From the first consultation to closing day, everything was handled professionally. The attention to detail and commitment to our satisfaction was outstanding.',
+        author: 'David Martinez',
+        position: 'First-time Buyer'
+    },
+    {
+        id: 4,
+        title: 'Outstanding investment guidance.',
+        text: 'Their knowledge of the market and investment opportunities helped us make the right decision. We couldn\'t be happier with our property purchase.',
+        author: 'Emma Thompson',
+        position: 'Real Estate Investor'
+    },
+    {
+        id: 5,
+        title: 'Best real estate experience ever.',
+        text: 'The entire team went above and beyond our expectations. Their dedication and professionalism made all the difference in finding our perfect home.',
+        author: 'James Wilson',
+        position: 'Satisfied Client'
+    },
+    {
+        id: 6,
+        title: 'Professional and caring team.',
+        text: 'From start to finish, they made everything easy. Their expertise and genuine care for our needs made us feel confident in every decision we made.',
+        author: 'Lisa Anderson',
+        position: 'Grateful Client'
+    }
+]
+---
+
+<section class="testimonials-section">
+    <div class="testimonials-container">
+        <div class="textos-testi">
+            <h2>Clientes que han confiado en nosotros</h2>
+        </div>
+        <div class="testimonials-slider" id="testimonialsSlider">
+            {testimonials.map((testimonial, index) => (
+                <div class="testimonial-card" data-index={index}>
+                    <div class="testimonial-content">
+                        <h2>{testimonial.title}</h2>
+                        <p>{testimonial.text}</p>
+                        <div class="testimonial-author">
+                            <span>{testimonial.author}</span>
+                            <span>— {testimonial.position}</span>
+                        </div>
+                    </div>
+                </div>
+            ))}
+        </div>
+
+      
+    </div>
+  <!-- Controles -->
+        <div class="testimonials-controls">
+            <button class="control-btn prev-btn" aria-label="Anterior">
+                <i class="bi bi-chevron-left"></i>
+            </button>
+            <button class="control-btn next-btn" aria-label="Siguiente">
+                <i class="bi bi-chevron-right"></i>
+            </button>
+        </div>
+
+        <!-- Dots -->
+        <div class="testimonials-dots" id="testimonialsDots">
+            <!-- Los dots se generarán dinámicamente -->
+        </div>
+    <!-- Efecto de desvanecido oscuro a la derecha -->
+    <div class="fade-overlay"></div>
+</section>
+
+<script>
+    let currentIndex = 0;
+    const slider = document.getElementById('testimonialsSlider');
+    const cards = document.querySelectorAll('.testimonial-card');
+    const dotsContainer = document.getElementById('testimonialsDots');
+    const prevBtn = document.querySelector('.prev-btn');
+    const nextBtn = document.querySelector('.next-btn');
+    const totalSlides = cards.length;
+    const slidesPerView = 2; // Mostrar 2 testimonios
+    const maxIndex = totalSlides - slidesPerView;
+
+    // Crear dots dinámicamente
+    for (let i = 0; i <= maxIndex; i++) {
+        const dot = document.createElement('button');
+        dot.className = i === 0 ? 'dot active' : 'dot';
+        dot.setAttribute('data-index', i.toString());
+        dot.setAttribute('aria-label', `Ir a testimonio ${i + 1}`);
+        dotsContainer?.appendChild(dot);
+    }
+
+    const dots = document.querySelectorAll('.dot');
+
+    function updateSlider(index: number) {
+        // Asegurar que el índice esté dentro del rango
+        if (index < 0) index = 0;
+        if (index > maxIndex) index = maxIndex;
+
+        // Calcular el desplazamiento
+        const cardWidth = (cards[0] as HTMLElement).offsetWidth;
+        const gap = 30; // gap entre tarjetas
+        const offset = -(index * (cardWidth + gap));
+
+        if (slider) {
+            (slider as HTMLElement).style.transform = `translateX(${offset}px)`;
+        }
+
+        // Actualizar dots
+        dots.forEach(dot => dot.classList.remove('active'));
+        if (dots[index]) {
+            dots[index].classList.add('active');
+        }
+
+        currentIndex = index;
+    }
+
+    function nextSlide() {
+        if (currentIndex < maxIndex) {
+            updateSlider(currentIndex + 1);
+        }
+    }
+
+    function prevSlide() {
+        if (currentIndex > 0) {
+            updateSlider(currentIndex - 1);
+        }
+    }
+
+    // Event listeners para los botones
+    nextBtn?.addEventListener('click', nextSlide);
+    prevBtn?.addEventListener('click', prevSlide);
+
+    // Event listeners para los dots
+    dots.forEach((dot) => {
+        dot.addEventListener('click', () => {
+            const index = parseInt(dot.getAttribute('data-index') || '0');
+            updateSlider(index);
+        });
+    });
+
+    // Autoplay (opcional)
+    let autoplayInterval = setInterval(() => {
+        if (currentIndex < maxIndex) {
+            nextSlide();
+        } else {
+            updateSlider(0); // Volver al inicio
+        }
+    }, 5000);
+
+    // Pausar autoplay al interactuar
+    const testimonialSection = document.querySelector('.testimonials-section');
+    testimonialSection?.addEventListener('mouseenter', () => {
+        clearInterval(autoplayInterval);
+    });
+
+    testimonialSection?.addEventListener('mouseleave', () => {
+        autoplayInterval = setInterval(() => {
+            if (currentIndex < maxIndex) {
+                nextSlide();
+            } else {
+                updateSlider(0);
+            }
+        }, 5000);
+    });
+
+    // Soporte para teclado
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') prevSlide();
+        if (e.key === 'ArrowRight') nextSlide();
+    });
+
+    // Ajustar al cambiar el tamaño de la ventana
+    window.addEventListener('resize', () => {
+        updateSlider(currentIndex);
+    });
+</script>

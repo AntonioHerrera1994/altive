@@ -1,0 +1,73 @@
+ .slider-container {
+            background-color: #D4A054;
+            padding: 30px 0;
+            overflow: hidden;
+            position: relative;
+            width: 100%;
+        }
+
+        /* Gradientes para el efecto fade */
+        .slider-container::before,
+        .slider-container::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            width: 200px;
+            height: 100%;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .slider-container::before {
+            left: 0;
+            background: linear-gradient(to right, #D4A054, transparent);
+        }
+
+        .slider-container::after {
+            right: 0;
+            background: linear-gradient(to left, #D4A054, transparent);
+        }
+
+        .slider-wrapper {
+            display: flex;
+            animation: scroll 8s linear infinite;
+        }
+
+        .slider-track {
+            display: flex;
+            gap: 80px;
+            align-items: center;
+            white-space: nowrap;
+        }
+
+        .text-item {
+            font-size: 32px;
+            font-family: "Roboto", sans-serif;
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.49);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* Animación de scroll */
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+      
+
+        /* Responsive */
+        @media (max-width: 800px) {
+            .text-item {
+                font-size: 24px;
+            }
+            
+            .slider-track {
+                gap: 50px;
+            }
+        }

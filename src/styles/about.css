@@ -1,0 +1,137 @@
+.about{
+  background-color: #152f3f;
+    padding: 80px 100px 80px 100px;
+}
+
+
+
+.grid-about{
+    display: grid;
+    grid-template-columns:repeat(2,minmax(0,1fr)) ;
+        gap:2rem;
+}
+
+/********** Textos **********/
+.about h2{
+font-family: "Open Sans", sans-serif;
+font-weight: 400;
+font-size: 38px;
+color: white;
+line-height: 60px;
+}
+
+.about p{
+      font-family: "Roboto", sans-serif;
+      text-align: justify;
+      color: rgb(176, 199, 213);
+      font-size: 20px;
+      line-height: 32px;
+}
+
+.imgabout img{
+    max-width: 60%;
+    max-height: 80%;
+    margin-left: 11rem;
+}
+
+/********** Cajas **********/
+
+.gridcajas{
+    display: grid;
+    grid-template-columns: repeat(4,minmax(0,1fr));
+    gap: 2rem;
+}
+.caja{
+padding: 0 30px 20px 30px;
+ border-radius: 20px;
+      border: solid 4px rgba(192, 187, 187, 0.097);
+}
+
+.caja h3{
+    font-family: "Inter", sans-serif;
+    color:#D4A054;
+    font-size: 65px;
+        transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+}
+
+.caja:hover h3{
+    transform: translateY(-10px);
+}
+
+.caja:hover {
+
+    transform: translateY(-5px);
+}
+
+.caja p{
+      font-family: "Roboto", sans-serif;
+      color: rgb(176, 199, 213);
+      font-size: 20px;
+      margin-top: -60px;
+}
+
+/********** Fade In Up **********/
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Estado inicial: invisible y sin animación */
+.fade-in-up {
+    opacity: 0;
+    transform: translateY(50px);
+    /* NO pongas animation aquí */
+}
+
+/* Estado visible: activa la animación */
+.fade-in-up.visible {
+    animation: fadeInUp 1.1s ease forwards;
+}
+
+.fade-in-up.delay-1 { animation-delay: 0.1s; }
+.fade-in-up.delay-2 { animation-delay: 0.3s; }
+.fade-in-up.delay-3 { animation-delay: 0.4s; }
+.fade-in-up.delay-4 { animation-delay: 0.5s; }
+.fade-in-up.delay-5 { animation-delay: 0.6s; }
+.fade-in-up.delay-6 { animation-delay: 0.7s; }
+
+@media screen and (max-width:800px){
+    .about{
+    padding: 20px 18px 20px 18px;
+}
+
+.grid-about{
+    display: grid;
+    grid-template-columns:repeat(1,minmax(0,1fr)) ;
+
+}
+
+/********** Textos **********/
+.about h2{
+    font-size: 36px;
+text-align: center;
+line-height: 50px;
+}
+
+
+.imgabout img{
+    max-width: 60%;
+    max-height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+/********** Cajas **********/
+
+.gridcajas{
+    grid-template-columns: repeat(1,minmax(0,1fr));
+}
+}

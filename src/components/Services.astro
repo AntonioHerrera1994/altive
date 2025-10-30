@@ -1,0 +1,142 @@
+---
+import '../styles/services.css'
+
+// Importa tus imágenes reales
+import House1 from '../assets/casa.webp'
+
+
+const services = [
+    {
+        id: 1,
+        icon: '01',
+        title: 'Property Sales',
+        description: 'Explore a variety of homes for sale.',
+        image: House1.src
+    },
+    {
+        id: 2,
+        icon: '02',
+        title: 'Rentals',
+        description: 'Find the perfect space for short or long-term stays.',
+        image: House1.src
+    },
+    {
+        id: 3,
+        icon: '03',
+        title: 'Property Management',
+        description: 'Let us handle your investments.',
+        image: House1.src
+    },
+    {
+        id: 4,
+        icon: '04',
+        title: 'Custom Builds',
+        description: 'Create a home that reflects your style.',
+        image: House1.src
+    }
+]
+---
+
+<section class="services-section">
+    <div class="services-container">
+        <!-- Contenido izquierdo -->
+        <div class="services-content">
+            <h2 class="services-title">
+                Nuestros servicios, adaptados a las necesidades de su propiedad.
+            </h2>
+
+            <div class="services-list">
+                {services.map((service, index) => (
+                    <div 
+                        class={`service-item ${index === 0 ? 'active' : ''}`}
+                        data-index={index}
+                        data-image={service.image}
+                    >
+                        <div class="service-icon">
+                            <span>{service.icon}</span>
+                        </div>
+                        <div class="service-info">
+                            <h3>{service.title}</h3>
+                            <p>{service.description}</p>
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </div>
+
+        <!-- Imagen derecha -->
+        <div class="services-image">
+            {services.map((service, index) => (
+                <img 
+                    src={service.image} 
+                    alt={service.title}
+                    class={`service-img ${index === 0 ? 'active' : ''}`}
+                    data-index={index}
+                />
+            ))}
+       
+        </div>
+    </div>
+</section>
+
+<script>
+    let currentIndex = 0;
+    let autoplayInterval: number;
+    let isHovering = false;
+
+    const serviceItems = document.querySelectorAll('.service-item');
+    const serviceImages = document.querySelectorAll('.service-img');
+
+    function changeService(index: number) {
+        // Remover clase active de todos
+        serviceItems.forEach(item => item.classList.remove('active'));
+        serviceImages.forEach(img => img.classList.remove('active'));
+
+        // Agregar clase active al seleccionado
+        serviceItems[index].classList.add('active');
+        serviceImages[index].classList.add('active');
+
+        currentIndex = index;
+    }
+
+    function nextService() {
+        if (!isHovering) {
+            const nextIndex = (currentIndex + 1) % serviceItems.length;
+            changeService(nextIndex);
+        }
+    }
+
+    function startAutoplay() {
+        autoplayInterval = window.setInterval(nextService, 4000);
+    }
+
+    function stopAutoplay() {
+        clearInterval(autoplayInterval);
+    }
+
+    // Event listeners para cada servicio
+    serviceItems.forEach((item, index) => {
+        item.addEventListener('mouseenter', () => {
+            isHovering = true;
+            stopAutoplay();
+            changeService(index);
+        });
+
+        item.addEventListener('mouseleave', () => {
+            isHovering = false;
+            startAutoplay();
+        });
+    });
+
+    // Iniciar autoplay al cargar
+    startAutoplay();
+
+    // Limpiar interval cuando la página se oculta
+    document.addEventListener('visibilitychange', () => {
+        if (document.hidden) {
+            stopAutoplay();
+        } else {
+            startAutoplay();
+        }
+    });
+</script>

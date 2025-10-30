@@ -1,0 +1,130 @@
+---
+import '../styles/departamentos.css'
+import HouseDep1 from '../assets/casa.webp'
+
+
+
+const properties = [
+    {
+        id: 1,
+        image: HouseDep1.src,
+        status: 'For Sale',
+        statusColor: 'red',
+        beds: 4,
+        baths: 10,
+        sqft: '1,000',
+        title: '4-Bedroom Terraced Duplex',
+        price: '$980,000',
+        showButton: false
+    },
+    {
+        id: 2,
+        image: HouseDep1.src,
+        status: 'For Rent',
+        statusColor: 'gold',
+        beds: 5,
+        baths: 5,
+        sqft: '450',
+        title: '5-Bedroom Duplex',
+        price: '€2,100,000',
+        showButton: false
+    },
+    {
+        id: 3,
+        image: HouseDep1.src,
+        status: 'For Sale',
+        statusColor: 'red',
+        beds: 6,
+        baths: 8,
+        sqft: '2,000',
+        title: 'Apartment in Lisbon',
+        price: '€520,000',
+        showButton: true
+    },
+    {
+        id: 4,
+        image: HouseDep1.src,
+        status: 'For Sale',
+        statusColor: 'red',
+        beds: 3,
+        baths: 3,
+        sqft: '1,200',
+        title: 'Modern Villa',
+        price: '$750,000',
+        showButton: false
+    },
+    {
+        id: 5,
+        image: HouseDep1.src,
+        status: 'For Rent',
+        statusColor: 'gold',
+        beds: 2,
+        baths: 2,
+        sqft: '800',
+        title: 'Downtown Apartment',
+        price: '$2,500/mo',
+        showButton: true
+    },
+    {
+        id: 6,
+        image: HouseDep1.src,
+        status: 'For Sale',
+        statusColor: 'red',
+        beds: 5,
+        baths: 6,
+        sqft: '3,500',
+        title: 'Luxury Estate',
+        price: '$1,850,000',
+        showButton: false
+    }
+]
+---
+
+<section class="depart">
+    <div class="depart-cont">
+            <h2>Conozca nuestras oportunidades de inversión exclusivas.</h2>
+    </div>
+
+<section class="properties-section">
+    <div class="properties-container">
+        <div class="properties-grid">
+            {properties.map((property) => (
+                <div class="property-card">
+                    <div class="property-image">
+                        <img src={property.image} alt={property.title} />
+                        <span class={`status-badge ${property.statusColor}`}>
+                            {property.status}
+                        </span>
+                        {property.showButton && (
+                            <button class="view-listing-btn">
+                                <i class="bi bi-house-door"></i>
+                                View Listing
+                            </button>
+                        )}
+                    </div>
+                    
+                    <div class="property-info">
+                        <div class="property-specs">
+                            <span class="spec">
+                                <i class="bi bi-house"></i>
+                                {property.beds} Beds
+                            </span>
+                            <span class="spec">
+                                <i class="bi bi-droplet"></i>
+                                {property.baths} Baths
+                            </span>
+                            <span class="spec">
+                                <i class="bi bi-arrows-fullscreen"></i>
+                                {property.sqft} SQR FT
+                            </span>
+                        </div>
+                        
+                        <h3 class="property-title">{property.title}</h3>
+                        <p class="property-price">{property.price}</p>
+                    </div>
+                </div>
+            ))}
+        </div>
+    </div>
+</section>
+</section>

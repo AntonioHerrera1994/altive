@@ -1,0 +1,110 @@
+.footer{
+    margin: auto 0;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    background-color: #152f3f;
+}
+
+.footer-grid{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    gap: 32px;
+    padding: 1rem 3rem 1rem 7rem;
+}
+
+
+
+.footergrid1 p{
+    color: white;
+}
+
+
+
+li{
+    color: white;
+}
+
+.footer h3{
+   font-family: "Open Sans", sans-serif;
+    text-transform: uppercase;
+    color:  #D4A054;
+
+}
+
+.footer p{
+    font-family: "Roboto", sans-serif;
+   color: rgba(255, 255, 255, 0.779);
+    text-align: justify;
+    font-size: 17px;
+}
+
+.footer li{
+    font-family: "Roboto", sans-serif;
+   color: rgba(255, 255, 255, 0.713);
+    text-align: justify;
+    font-size: 16px;
+    text-transform: capitalize;
+   margin-right: -2rem;
+    line-height: 34px;
+
+}
+
+.footergrid3 li{
+    display: inline-block;
+    margin-right: 10px; /* Espaciado entre elementos */
+}
+
+.footer ul{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footergrid2{
+    margin-left: 8rem;
+}
+
+.footergrid3{
+    margin-left: 5rem;
+}
+
+.footer .bi{
+    color: white;
+    margin-right: 1rem;
+}
+
+.footergrid2 a{
+     color: rgba(255, 255, 255, 0.713);
+    text-decoration: none;
+    text-transform: none;
+}
+
+
+@media screen and (max-width:800px){
+
+    .footer{
+        margin: auto 0;
+        padding-top: 3rem;
+        padding-bottom: 1rem;
+        background-color: black;
+    }
+
+    .footer-grid{
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(1, 1fr);
+        gap: 32px;
+        padding: 2rem;
+    }
+
+    .footergrid2{
+        margin-left: 0;
+        margin-right: 2rem;
+    }
+    
+    .footergrid3{
+        margin-left: 0;
+    }
+    
+}

@@ -1,0 +1,74 @@
+---
+import '../styles/faqs.css'
+
+const faqs = [
+    {
+        id: 1,
+        question: 'What services does HavenSpot offer?',
+        answer: 'HavenSpot provides a wide range of real estate services, including property sales, rentals, investment consulting, property management, and real estate advisory services.'
+    },
+    {
+        id: 2,
+        question: 'How can I find a property through HavenSpot?',
+        answer: 'You can browse our extensive property listings on our website, use our advanced search filters, or contact our agents directly. We offer personalized assistance to help you find the perfect property that meets your needs and budget.'
+    },
+    {
+        id: 3,
+        question: 'Does HavenSpot help with mortgage financing?',
+        answer: 'Yes, we work with trusted financial partners to help you secure mortgage financing. Our team can guide you through the application process and connect you with lenders who offer competitive rates.'
+    },
+    {
+        id: 4,
+        question: 'How do I list my property for sale or rent with HavenSpot?',
+        answer: 'Listing your property is easy. Simply contact us through our website or call our office. Our team will schedule a property evaluation, discuss pricing strategies, and create a comprehensive marketing plan to attract qualified buyers or renters.'
+    },
+    {
+        id: 5,
+        question: 'Are the properties listed on HavenSpot verified?',
+        answer: 'Absolutely. We conduct thorough verification checks on all properties listed on our platform. This includes confirming ownership, inspecting property conditions, and ensuring all legal documentation is in order to provide you with peace of mind.'
+    }
+]
+---
+
+<div class="accordion">
+
+       <div class="textos-faqs">
+            <h2>Preguntas frecuentes</h2>
+        </div>
+
+    {faqs.map((faq, index) => (
+        <div class={`accordion-item ${index === 0 ? 'active' : ''}`}>
+            <button class="accordion-header">
+                <span class="accordion-question">{faq.question}</span>
+                <span class="accordion-icon">
+                    <i class="icon-plus">+</i>
+                    <i class="icon-minus">−</i>
+                </span>
+            </button>
+            <div class="accordion-content">
+                <p>{faq.answer}</p>
+            </div>
+        </div>
+    ))}
+</div>
+
+<script>
+    const accordionHeaders = document.querySelectorAll('.accordion-header');
+
+    accordionHeaders.forEach(header => {
+        header.addEventListener('click', () => {
+            const accordionItem = header.parentElement;
+            const isActive = accordionItem?.classList.contains('active');
+
+            // Cerrar todos los items
+            document.querySelectorAll('.accordion-item').forEach(item => {
+                item.classList.remove('active');
+            });
+
+            // Si no estaba activo, abrirlo
+            if (!isActive) {
+                accordionItem?.classList.add('active');
+            }
+        });
+    });
+</script>

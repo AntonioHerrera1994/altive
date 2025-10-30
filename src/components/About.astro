@@ -1,0 +1,70 @@
+---
+import '../styles/about.css'
+import IsoImg from '../assets/iso-transparente.png'
+---
+
+<section class="about">
+<div class="content-about">
+    <div class="grid-about">
+    <div class="aboutxt">
+<h2 class="fade-in-up delay-1">
+            Encuentre la propiedad perfecta para su próxima gran inversión.
+    </h2>
+    <p class="fade-in-up delay-2">
+        En Altivé, hacemos que la inversión inmobiliaria sea sencilla y rentable. Tanto si está comprando su primera vivienda como si desea ampliar su cartera, estamos aquí para ponerle en contacto con propiedades de alta calidad que prometen un valor a largo plazo.
+    </p>
+    </div>
+    
+<div class="imgabout">
+    <img 
+    src={IsoImg.src}
+    alt="Isotipo"
+    class="isoimg"
+    />
+</div>
+    </div>
+
+    <div class="gridcajas">
+        <div class="caja fade-in-up delay-3">
+            <h3>+100</h3>
+            <p>Clientes satisfechos</p>
+        </div>
+          <div class="caja fade-in-up delay-4">
+            <h3>10</h3>
+            <p>Años de experiencia</p>
+        </div>
+          <div class="caja fade-in-up delay-5">
+            <h3>20</h3>
+            <p>Departamentos en venta</p>
+        </div>
+          <div class="caja fade-in-up delay-6">
+            <h3>100%</h3>
+            <p>Calidad garantizada</p>
+        </div>
+    </div>
+</div>
+</section>
+
+<script is:inline>
+    // Esperar a que TODO esté cargado
+    window.addEventListener('load', () => {
+        setTimeout(() => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    console.log('Elemento detectado:', entry.target, 'Visible:', entry.isIntersecting);
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.2,
+                rootMargin: '0px 0px -100px 0px'
+            });
+
+            const fadeElements = document.querySelectorAll('.fade-in-up');
+            console.log('Elementos encontrados:', fadeElements.length);
+            fadeElements.forEach(el => observer.observe(el));
+        }, 100);
+    });
+</script>
