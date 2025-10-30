@@ -3,8 +3,6 @@
     padding: 80px 100px 80px 100px;
 }
 
-
-
 .grid-about{
     display: grid;
     grid-template-columns:repeat(2,minmax(0,1fr)) ;
@@ -52,7 +50,6 @@ padding: 0 30px 20px 30px;
     color:#D4A054;
     font-size: 65px;
         transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-
 }
 
 .caja:hover h3{
@@ -60,7 +57,6 @@ padding: 0 30px 20px 30px;
 }
 
 .caja:hover {
-
     transform: translateY(-5px);
 }
 
@@ -110,7 +106,6 @@ padding: 0 30px 20px 30px;
 .grid-about{
     display: grid;
     grid-template-columns:repeat(1,minmax(0,1fr)) ;
-
 }
 
 /********** Textos **********/
@@ -119,7 +114,6 @@ padding: 0 30px 20px 30px;
 text-align: center;
 line-height: 50px;
 }
-
 
 .imgabout img{
     max-width: 60%;
@@ -133,5 +127,16 @@ line-height: 50px;
 
 .gridcajas{
     grid-template-columns: repeat(1,minmax(0,1fr));
+}
+
+.caja{
+padding: 0 0 20px 30px;
+}
+
+.caja h3{
+    font-size: 55px;
+}
+.caja p{
+      margin-top: -40px;
 }
 }

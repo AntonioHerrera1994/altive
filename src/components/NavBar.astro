@@ -3,54 +3,51 @@ import '../styles/navbar.css'
 import ImageLogo from '../assets/altive-logo.png';
 ---
 
-
-<div class="content" id="miDiv">
-  <div class="head-grid">
-
-    <a href="https://vikingdevtj.com/"><div class="head-logo">
+<section class="navbar-f">
+  <nav>
+    <div class="logo">
       <img 
-      src={ImageLogo.src} 
-      width="1500" 
-      height="678"
-      alt="logo-vikingdev"
-      class="logo-img"/>
+        src={ImageLogo.src}
+        width="12%"
+        height="50%"
+        alt="favlash-logo"/>
     </div>
-  </a>
 
     <div class="nav-links">
-      <div class="elementos-menu">
-      <a href="#nosotros">Nosotros</a>
+      <a href="#nosotras">Nosotros</a>
       <a href="#servicios">Servicios</a>
-        <a href="#proyectos">Departamentos</a>
-       <a href="#paquetes">Faq's</a>
-      <a href="#cotizador" style="background-color: rgb(17, 37, 49);;padding:15px;border-radius:15px;color:white;" class="btn-cotiza">¡Cotiza hoy!</a>
-        <a href="#cotizador" class="cotiza-movil">Contáctanos</a>
-      <!-- <a href="#cotizador" class="btn-ctz">Cotiza Tu Proyecto</a>-->
-    </div>  
-
-
-      <div class="nav-links-grid">
-        
-        <div class="navlinks-logo">
-          <p>VikingDev</p>
-        </div>
-
-        <div class="close">
-          <i class="bi bi-x-lg"></i>
-      
-        </div>
-
-      </div>
-  
-    </div> 
-
-
-    <div class="hamburger">
-      <span class="line"></span>
-      <span class="line"></span>
-      <span class="line"></span>
+      <a href="#testimonios">Departamentos</a>
+      <a href="#testimonios">Faq's</a>
     </div>
 
-  </div>
-</div>
+    <a href=""><button class="btn-escritorio">Contáctanos</button></a>
 
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </nav>
+
+  <!-- Overlay oscuro -->
+  <div class="menu-overlay" id="menuOverlay"></div>
+
+  <!-- Menú móvil -->
+  <div class="mobile-menu" id="mobileMenu">
+    <!-- Botón cerrar -->
+    <button class="close-menu" id="closeMenu">
+      <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="white" viewBox="0 0 16 16">
+        <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
+      </svg>
+    </button>
+
+    <!-- Enlaces del menú -->
+    <div class="mobile-menu-content">
+      <a href="#nosotras">Nosotros</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#testimonios">Departamentos</a>
+      <a href="#testimonios">Faq's</a>
+      <button class="nav-button">Contáctanos</button>
+    </div>
+  </div>
+</section>

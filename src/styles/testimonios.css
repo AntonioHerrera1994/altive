@@ -12,7 +12,7 @@
     width: 100%;
     position: relative;
     overflow: hidden;
-    
+    padding-bottom: 110px;
 }
 
 /********** Slider **********/
@@ -206,12 +206,24 @@ margin-bottom: 50px;
 
 @media (max-width: 800px) {
     .testimonial-content {
-        padding: 30px 25px;
+        padding: 20px 25px;
         min-height: 320px;
+      
+    }
+
+    .testimonials-container {
+padding-bottom: 90px;
+}
+
+      .testimonials-section {
+        padding: 0 40px;
+        margin-top: -10px;
+        min-height: 10vh;
     }
 
     .testimonial-content h2 {
         font-size: 20px;
+      
     }
 
     .testimonial-content p {
@@ -246,7 +258,7 @@ margin-bottom: 50px;
 
     .testimonials-controls {
         left: 20px;
-        bottom: 0px;
+        bottom: 30px;
     }
 
     .testimonials-dots {
@@ -258,4 +270,6 @@ margin-bottom: 50px;
         width: 45px;
         height: 45px;
     }
+
+
 }

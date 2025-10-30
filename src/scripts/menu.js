@@ -1,44 +1,35 @@
-// Abrir menú
+const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const menuOverlay = document.getElementById('menuOverlay');
+  const closeMenu = document.getElementById('closeMenu');
+  const mobileLinks = document.querySelectorAll('.mobile-menu a');
 
-document.querySelector('.hamburger').addEventListener('click', () => {
-  document.querySelector('.nav-links').classList.toggle('expanded');
-});
-
-// Cerrar menú al hacer clic en el botón "close"
-document.querySelector('.close').addEventListener('click',   
-() => {
-document.querySelector('.nav-links').classList.remove('expanded');
-});
-
-// Cerrar menú al hacer clic en cualquier enlace dentro de nav-links
-document.querySelectorAll('.nav-links a').forEach(link => {
-  link.addEventListener('click', () => {
-    document.querySelector('.nav-links').classList.remove('expanded');
+  // Abrir menú
+  hamburger?.addEventListener('click', () => {
+    mobileMenu?.classList.add('active');
+    menuOverlay?.classList.add('active');
+    document.body.style.overflow = 'hidden'; // Prevenir scroll
   });
-});
 
+  // Cerrar menú con botón X
+  closeMenu?.addEventListener('click', () => {
+    mobileMenu?.classList.remove('active');
+    menuOverlay?.classList.remove('active');
+    document.body.style.overflow = ''; // Restaurar scroll
+  });
 
-// Cambiar color de fondo al hacer scroll (para #miDiv)
-window.addEventListener('scroll', function() {
-  const div = document.getElementById('miDiv');
-  const scrollPosition = window.scrollY;
+  // Cerrar menú con overlay
+  menuOverlay?.addEventListener('click', () => {
+    mobileMenu?.classList.remove('active');
+    menuOverlay?.classList.remove('active');
+    document.body.style.overflow = '';
+  });
 
-  if (scrollPosition > 100) { // Cambia a 100px o la distancia que prefieras
-    div.style.backgroundColor = 'rgb(17, 27, 33)'; // Nuevo color de fondo
-  } else {
-    div.style.backgroundColor = '#152f3f'; // Color inicial
-  }
-});
-
-
-// Cambiar color de fondo al hacer scroll (para #miMenu)
-window.addEventListener('scroll', function() {
-  const div = document.getElementById('miMenu');
-  const scrollPosition = window.scrollY;
-
-  if (scrollPosition > 100) { // Cambia a 100px o la distancia que prefieras
-    div.style.backgroundColor = 'rgb(17, 27, 33)'; // Nuevo color de fondo
-  } else {
-    div.style.backgroundColor = '#ffffff00'; // Color inicial
-  }
-});
+  // Cerrar menú al hacer clic en un enlace
+  mobileLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu?.classList.remove('active');
+      menuOverlay?.classList.remove('active');
+      document.body.style.overflow = '';
+    });
+  });
