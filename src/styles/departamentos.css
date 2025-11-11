@@ -24,6 +24,32 @@ margin: 0 280px;
     margin: 0 auto;
 }
 
+/*********** Boton **********/
+.btn-dep a{
+    display: flex;
+    justify-content: center;
+    font-family: "Roboto", sans-serif;
+    font-size: 20px;
+    color: #D4A054;
+   background-color: rgb(17, 37, 49);
+   border-radius: 100px;
+      padding: 15px 25px;
+      border: solid 2px rgba(192, 187, 187, 0.097);
+      text-decoration: none;
+ 
+}
+
+.btn-dep a:hover{
+    color: rgb(176, 199, 213);
+}
+
+.btn-dep{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+}
+
 /********** Grid de 3 columnas **********/
 .properties-grid {
     display: grid;

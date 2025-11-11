@@ -43,6 +43,7 @@ margin: 0 260px;
    border-radius: 100px;
       padding: 15px 25px;
       border: solid 2px rgba(192, 187, 187, 0.097);
+      text-decoration: none;
 }
 
 .conthero a:hover{

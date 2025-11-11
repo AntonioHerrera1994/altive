@@ -43,6 +43,22 @@ import Madred4 from '../assets/propiedades/madeiras-red/04madred.webp'
 import Madred5 from '../assets/propiedades/madeiras-red/05madred.webp'
 import Madred6 from '../assets/propiedades/madeiras-red/06madred.webp'
 
+import Santafe1 from '../assets/propiedades/santafe/01santafe.webp'
+import Santafe2 from '../assets/propiedades/santafe/02santafe.webp'
+import Santafe3 from '../assets/propiedades/santafe/03santafe.webp'
+import Santafe4 from '../assets/propiedades/santafe/04santafe.webp'
+import Santafe5 from '../assets/propiedades/santafe/05santafe.webp'
+import Santafe6 from '../assets/propiedades/santafe/06santafe.webp'
+
+import Vistajuarez1 from '../assets/propiedades/vistajuarez/01vistajuarez.webp'
+import Vistajuarez2 from '../assets/propiedades/vistajuarez/02vistajuarez.webp'
+import Vistajuarez3 from '../assets/propiedades/vistajuarez/03vistajuarez.webp'
+import Vistajuarez4 from '../assets/propiedades/vistajuarez/04vistajuarez.webp'
+import Vistajuarez5 from '../assets/propiedades/vistajuarez/05vistajuarez.webp'
+import Vistajuarez6 from '../assets/propiedades/vistajuarez/06vistajuarez.webp'
+import Vistajuarez7 from '../assets/propiedades/vistajuarez/07vistajuarez.webp'
+import Vistajuarez8 from '../assets/propiedades/vistajuarez/08vistajuarez.webp'
+
 const properties = [
     {
         id: 1,
@@ -300,10 +316,95 @@ const properties = [
         },
         showButton: false
     },
+     {
+        id: 7,
+        images: [
+            Santafe6.src,
+            Santafe2.src,
+            Santafe3.src,
+            Santafe4.src,
+            Santafe5.src,
+            Santafe1.src
+        ],
+        status: 'Renta',
+        statusColor: 'gold',
+        beds: 2,
+        baths: 1,
+        sqft: '119 mts2',
+        title: 'Casa Privada Los Sauces',
+        price: '$15,500 MXN',
+        description: 'Renta y estrena esta linda propiedad. Esta moderna casa cuenta con dos habitaciones, cocina integral con estufa, sala, comedor, baño completo en planta alta y medio baño en planta baja, patio trasero con lavadero y boiler, pasillo lateral y estacionamiento para dos autos. La casa se encuentra ubicada en una privada de 30 casas con acceso controlado y en una zona cerca de plazas comerciales, tiendas de auto servicio y escuelas.',
+        features: [
+            'Sala',
+            'Comedor',
+            'Cocina',
+            'Medio baño',
+            'Patio trasero',
+            'Pasillo lateral',
+            '2 habitaciones',
+            'Baño completo',
+            'Cocina Integral con estufa',
+            'Boiler',
+            'Lavadero',
+            'Herreria',
+        ],
+        location: {
+            address: 'Blvd. El Rosario 11431-4, Priv. Los Sauces, Condominio La Escondida, El Rosario, C.P. 22666, San Antonio de los Buenos, B.C.',
+            lat: 32.5250,
+            lng: -117.0330,
+            mapEmbed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3608.6913476170785!2d-117.05075120321044!3d32.431818299999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80d937513c699d21%3A0x2a3f5b99e7022025!2sSauces%20Residencial%20Condominio%204!5e1!3m2!1ses-419!2smx!4v1762899248368!5m2!1ses-419!2smx" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade'
+        },
+        showButton: false
+    },
+        {
+        id: 8,
+        images: [
+            Vistajuarez7.src,
+            Vistajuarez2.src,
+            Vistajuarez3.src,
+            Vistajuarez4.src,
+            Vistajuarez5.src,
+            Vistajuarez6.src,
+            Vistajuarez1.src,
+            Vistajuarez8.src
+        ],
+        status: 'Venta',
+        statusColor: 'gold',
+        beds: 2,
+        baths: 2,
+        sqft: '99 mts2',
+        title: 'Condominio Vista Juarez',
+        price: '$5,850,000 MXN',
+        description: 'Estrena este hermoso condominio de dos habitaciones, la principal con walk in closet y baño, la segunda habitación comparte baño con el área social. Cocina integral con cubierta de cuarzo, área de sala-comedor y cuarto de lavado con boiler. Los espacios en este desarrollo de tan solo 31 condominios son muy amplios y luminosos. Cada condominio cuenta con dos cajones de estacionamiento "no tándem". Sus amenidades, gimnasio, jacuzzi, fire pits y salas de asadores te invitan relajarte y vivir comodamente. Te invito a que llevemos a tus clientes y conozcan este cálido lugar para vivir. Su ubicación es privilegiada por ser la última propiedad en una de las amplias calles de la colonia Juarez.',
+        features: [
+            '2 habitaciones',
+            '2 baños completos',
+            'Cocina Integral con cubierta de cuarzo',
+            'Area de lavado',
+            'Balcón',
+            '2 cajones de estacionamiento',
+            'Segundo nivel',
+            'Gimnasio',
+            'Jacuzzi',
+            'Fire Pits',
+            'Salas de asadores',
+            'Boiler',
+            'Cisterna',
+            'Elevador',
+            'Acceso controlado',
+        ],
+        location: {
+            address: 'Calle Berriozabal 8110, colonia Juarez, 22040, Tijuana, B.C.',
+            lat: 32.5250,
+            lng: -117.0330,
+            mapEmbed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3605.3826479417885!2d-117.04089031506405!3d32.51440152975541!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80d949b59085d251%3A0x81e9011dd1b692fd!2sBerriozabal%208110%2C%20Ju%C3%A1rez%2C%2022040%20Tijuana%2C%20B.C.!5e1!3m2!1ses-419!2smx!4v1762901084892!5m2!1ses-419!2smx" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade'
+        },
+        showButton: false
+    },
 ]
 ---
 
-<section class="depart" id="departamentos">
+<section class="depart">
     <div class="depart-cont">
         <h2>Las mejores oportunidades del mercado inmobiliario.</h2>
     </div>
@@ -348,10 +449,6 @@ const properties = [
                     </div>
                 ))}
             </div>
-        </div>
-
-        <div class="btn-dep">
-            <a href="/departamentos"><i class="bi bi-house-up"></i>Ver todas las propiedades</a>
         </div>
     </section>
 
