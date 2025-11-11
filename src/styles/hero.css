@@ -28,6 +28,9 @@ margin: 0 260px;
       text-align: center;
       color: rgb(176, 199, 213);
       font-size: 20px;
+      margin-right: 200px;
+      margin-left: 200px;
+      line-height: 32px;
 }
 
 .conthero a{
@@ -120,6 +123,9 @@ margin: 0;
   z-index: 10;
 }
 
+.conthero p{
+    margin: 0;
+}
 /********** Imagen **********/
 .hero-image-cont{
 padding-top: 60px;

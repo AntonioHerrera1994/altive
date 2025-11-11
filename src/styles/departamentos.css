@@ -196,3 +196,578 @@ line-height: 50px;
 margin: 0;
 }
 }
+
+/********** Modal / Popup **********/
+.property-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.property-modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Overlay oscuro */
+.modal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(5px);
+}
+
+/* Contenido del modal */
+.modal-content {
+    position: relative;
+    background-color: #1a3a4a;
+    border-radius: 20px;
+    max-width: 900px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    z-index: 10000;
+    transform: scale(0.8) translateY(50px);
+    opacity: 0;
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), 
+                opacity 0.4s ease;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
+}
+
+.property-modal.active .modal-content {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+}
+
+/* Botón cerrar */
+.modal-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 45px;
+    height: 45px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10001;
+    transition: all 0.3s ease;
+}
+
+.modal-close:hover {
+    background-color: rgba(212, 160, 84, 0.8);
+    transform: rotate(90deg);
+}
+
+/* Imagen del modal */
+.modal-image {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+    border-radius: 20px 20px 0 0;
+}
+
+.modal-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.modal-badge {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 10px 25px;
+    border-radius: 25px;
+    font-size: 14px;
+    font-weight: 600;
+    color: white;
+}
+
+.modal-badge.red {
+    background-color: #dc2626;
+}
+
+.modal-badge.gold {
+    background-color: #D4A054;
+}
+
+/* Información del modal */
+.modal-info {
+    padding: 40px;
+}
+
+.modal-info h2 {
+    font-family: "Open Sans", sans-serif;
+    font-size: 32px;
+    font-weight: 600;
+    color: #D4A054;
+    margin-bottom: 35px;
+    line-height: 1.3;
+    margin-left: -90px;
+    margin-right: -90px;
+}
+
+.modal-specs {
+    display: flex;
+    gap: 25px;
+    margin-bottom: 25px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.modal-spec {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
+    color: #cbd5e1;
+}
+
+.modal-spec i {
+    color: #D4A054;
+    font-size: 20px;
+}
+
+.modal-price {
+    margin-bottom: 30px;
+}
+
+.modal-price span {
+    font-family: "Roboto", sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: white;
+}
+
+/* Descripción */
+.modal-description {
+    margin-bottom: 35px;
+}
+
+.modal-description h3 {
+    font-family: "Open Sans", sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 15px;
+}
+
+.modal-description p {
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
+    line-height: 1.8;
+    color: #cbd5e1;
+}
+
+/* Botones de acción */
+.modal-actions {
+    display: flex;
+    gap: 15px;
+}
+
+.modal-actions button {
+    flex: 1;
+    padding: 15px 25px;
+    border: none;
+    border-radius: 12px;
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+}
+
+.btn-contact {
+    background-color: #D4A054;
+    color: white;
+}
+
+.btn-contact:hover {
+    background-color: #b8860b;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(212, 160, 84, 0.4);
+}
+
+.btn-schedule {
+    background-color: transparent;
+    color: white;
+    border: 2px solid #D4A054;
+}
+
+.btn-schedule:hover {
+    background-color: #D4A054;
+    transform: translateY(-2px);
+}
+
+/* Scrollbar del modal */
+.modal-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.modal-content::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+    background: #D4A054;
+    border-radius: 4px;
+}
+
+/********** Responsive del modal **********/
+@media (max-width: 768px) {
+    .modal-content {
+        width: 95%;
+        max-height: 95vh;
+    }
+
+    .modal-image {
+        height: 250px;
+    }
+
+    .modal-info {
+        padding: 25px;
+    }
+
+    .modal-info h2 {
+        font-size: 24px;
+    }
+
+    .modal-specs {
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .modal-price span {
+        font-size: 28px;
+    }
+
+    .modal-actions {
+        flex-direction: column;
+    }
+
+    .modal-close {
+        width: 40px;
+        height: 40px;
+        top: 15px;
+        right: 15px;
+    }
+}
+
+/* ... tu CSS existente ... */
+
+/********** Galería de imágenes **********/
+.modal-gallery {
+    position: relative;
+}
+
+.gallery-main {
+    position: relative;
+    width: 100%;
+    height: 450px;
+    overflow: hidden;
+    border-radius: 20px 20px 0 0;
+}
+
+.gallery-main img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Controles de galería */
+.gallery-prev,
+.gallery-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    background-color: rgba(0, 0, 0, 0.6);
+    border: none;
+    border-radius: 50%;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.gallery-prev {
+    left: 20px;
+}
+
+.gallery-next {
+    right: 20px;
+}
+
+.gallery-prev:hover,
+.gallery-next:hover {
+    background-color: rgba(212, 160, 84, 0.9);
+    transform: translateY(-50%) scale(1.1);
+}
+
+/* Miniaturas */
+.gallery-thumbnails {
+    display: flex;
+    gap: 10px;
+    padding: 15px 40px;
+    overflow-x: auto;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.gallery-thumb {
+    flex-shrink: 0;
+    width: 100px;
+    height: 70px;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    border: 3px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.gallery-thumb.active {
+    border-color: #D4A054;
+    transform: scale(1.05);
+}
+
+.gallery-thumb:hover {
+    border-color: rgba(212, 160, 84, 0.5);
+}
+
+.gallery-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Scrollbar de miniaturas */
+.gallery-thumbnails::-webkit-scrollbar {
+    height: 6px;
+}
+
+.gallery-thumbnails::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.gallery-thumbnails::-webkit-scrollbar-thumb {
+    background: #D4A054;
+    border-radius: 3px;
+}
+
+/********** Tabs **********/
+.modal-tabs {
+    display: flex;
+    gap: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 0 40px;
+}
+
+.tab-btn {
+    flex: 1;
+    padding: 20px 25px;
+    border: none;
+    background-color: transparent;
+    color: rgba(255, 255, 255, 0.6);
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border-bottom: 3px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.tab-btn i {
+    font-size: 18px;
+}
+
+.tab-btn:hover {
+    color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.tab-btn.active {
+    color: white;
+    border-bottom-color: #D4A054;
+    background-color: rgba(212, 160, 84, 0.1);
+}
+
+/********** Contenido de tabs **********/
+.tab-content {
+    display: none;
+    animation: fadeIn 0.4s ease;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/********** Lista de características **********/
+.features-list {
+    list-style: none;
+    padding: 0;
+    margin: 25px 0 0 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.features-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 12px;
+    background-color: rgba(255, 255, 255, 0.03);
+    border-radius: 8px;
+    border-left: 3px solid #D4A054;
+    transition: all 0.3s ease;
+}
+
+.features-list li:hover {
+    background-color: rgba(212, 160, 84, 0.1);
+    transform: translateX(5px);
+}
+
+.features-list li i {
+    color: #D4A054;
+    font-size: 20px;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.features-list li span {
+    font-family: "Roboto", sans-serif;
+    font-size: 15px;
+    color: #cbd5e1;
+    line-height: 1.5;
+}
+
+/********** Ubicación **********/
+.location-address {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 20px;
+    background-color: rgba(212, 160, 84, 0.1);
+    border-radius: 12px;
+    margin-bottom: 25px;
+}
+
+.location-address i {
+    color: #D4A054;
+    font-size: 24px;
+}
+
+.location-address span {
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
+    color: white;
+}
+
+.location-map {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.location-map iframe {
+    display: block;
+}
+
+/********** Responsive del modal actualizado **********/
+@media (max-width: 768px) {
+    .gallery-main {
+        height: 250px;
+    }
+
+    .gallery-prev,
+    .gallery-next {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+    }
+
+    .gallery-prev {
+        left: 10px;
+    }
+
+    .gallery-next {
+        right: 10px;
+    }
+
+    .gallery-thumbnails {
+        padding: 10px 20px;
+    }
+
+    .gallery-thumb {
+        width: 80px;
+        height: 60px;
+    }
+
+    .modal-tabs {
+        padding: 0 20px;
+        overflow-x: auto;
+    }
+
+    .tab-btn {
+        padding: 15px 20px;
+        font-size: 14px;
+        white-space: nowrap;
+    }
+
+    .tab-btn i {
+        font-size: 16px;
+    }
+
+    .features-list {
+        grid-template-columns: 1fr;
+    }
+
+    .location-map iframe {
+        height: 300px;
+    }
+
+    .modal-info h2 {
+        font-size: 22px;
+    }
+}

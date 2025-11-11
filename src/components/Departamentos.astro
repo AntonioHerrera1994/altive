@@ -1,130 +1,627 @@
 ---
 import '../styles/departamentos.css'
 import HouseDep1 from '../assets/casa.webp'
+import Cabana1 from '../assets/propiedades/cabana-rancho-tecate/01cabana.webp'
+import Cabana2 from '../assets/propiedades/cabana-rancho-tecate/02cabana.webp'
+import Cabana3 from '../assets/propiedades/cabana-rancho-tecate/03cabana.webp'
+import Cabana4 from '../assets/propiedades/cabana-rancho-tecate/04cabana.webp'
+import Cabana5 from '../assets/propiedades/cabana-rancho-tecate/05cabana.webp'
+import Cabana6 from '../assets/propiedades/cabana-rancho-tecate/06cabana.webp'
 
+import Azaleas1 from '../assets/propiedades/azaleas/01azaleas.webp'
+import Azaleas2 from '../assets/propiedades/azaleas/02azaleas.webp'
+import Azaleas3 from '../assets/propiedades/azaleas/03azaleas.webp'
+import Azaleas4 from '../assets/propiedades/azaleas/04azaleas.webp'
+import Azaleas5 from '../assets/propiedades/azaleas/05azaleas.webp'
+import Azaleas6 from '../assets/propiedades/azaleas/06azaleas.webp'
 
+import Cha1 from '../assets/propiedades/hacienda-agua/01cha.webp'
+import Cha2 from '../assets/propiedades/hacienda-agua/02cha.webp'
+import Cha3 from '../assets/propiedades/hacienda-agua/03cha.webp'
+import Cha4 from '../assets/propiedades/hacienda-agua/04cha.webp'
+import Cha5 from '../assets/propiedades/hacienda-agua/05cha.webp'
+import Cha6 from '../assets/propiedades/hacienda-agua/06cha.webp'
+
+import Chip1 from '../assets/propiedades/chipodromo/01casahip.webp'
+import Chip2 from '../assets/propiedades/chipodromo/02casahip.webp'
+import Chip3 from '../assets/propiedades/chipodromo/03casahip.webp'
+import Chip4 from '../assets/propiedades/chipodromo/04casahip.webp'
+import Chip5 from '../assets/propiedades/chipodromo/05casahip.webp'
+import Chip6 from '../assets/propiedades/chipodromo/06casahip.webp'
+
+import Clv1 from '../assets/propiedades/lomas-villa/01casalv.webp'
+import Clv2 from '../assets/propiedades/lomas-villa/02casalv.webp'
+import Clv3 from '../assets/propiedades/lomas-villa/03casalv.webp'
+import Clv4 from '../assets/propiedades/lomas-villa/04casalv.webp'
+import Clv5 from '../assets/propiedades/lomas-villa/05casalv.webp'
+import Clv6 from '../assets/propiedades/lomas-villa/06casalv.webp'
+
+import Madred1 from '../assets/propiedades/madeiras-red/01madred.webp'
+import Madred2 from '../assets/propiedades/madeiras-red/02madred.webp'
+import Madred3 from '../assets/propiedades/madeiras-red/03madred.webp'
+import Madred4 from '../assets/propiedades/madeiras-red/04madred.webp'
+import Madred5 from '../assets/propiedades/madeiras-red/05madred.webp'
+import Madred6 from '../assets/propiedades/madeiras-red/06madred.webp'
 
 const properties = [
     {
         id: 1,
-        image: HouseDep1.src,
-        status: 'For Sale',
-        statusColor: 'red',
+        images: [
+            Cabana1.src,
+            Cabana2.src,
+            Cabana3.src,
+            Cabana4.src,
+            Cabana5.src,
+            Cabana6.src
+        ],
+        status: 'Venta',
+        statusColor: 'gold',
         beds: 4,
-        baths: 10,
-        sqft: '1,000',
-        title: '4-Bedroom Terraced Duplex',
-        price: '$980,000',
+        baths: 3.5,
+        sqft: '1188 mts2',
+        title: 'Cabaña Rancho Tecate',
+        price: '$440,000 Dlls',
+        description: 'Esta propiedad se encuentra ubicada dento de Rancho Tecate, uno de los desarrolloscampestre mas seguros y atractivos de nuestra región. La cabaña cuenta con cuatro habitaciones, tres baños completos y medio baño para visitas, área de sala y comedor muy amplios y con mobiliario suficiente para recibir a amigos y familiares y disfrutar del calor de la chimena. Su terraza es ideal para disfrutar un bello atardecer. El terreno en el que esta ubicada, con mas de 60 árboles fruales y 100 plantas de uva te sumerge en la vida campestre que solo este lugar te puede brindar.',
+        features: [
+            '4 habittaciones',
+            '3.5 baños',
+            'Cocina',
+            'Sala-Comedor con chimenea',
+            'Cuarto de lavado',
+            'Jacuzzi',
+            'Terraza con horno de piedra',
+            'Acceso a áreas verdes y parque',
+            'Alrededor de 60 árboles frutales',
+            '100 plantas de uva',
+            'Fire pit',  
+            'Bodega/Cuarto de herramientas',
+            '7 toneladas de AC con calefacción',
+            'Ventiladores de techo',
+            'Paneles solares',
+            'Boiler',
+            'Electrodomesticos',
+            'Cisterna de 2500 litros con sistema hidroneumático',
+            'Totalmente amueblada',
+        ],
+        location: {
+            address: 'Calle A-SP-02 #0, Rancho Tecate, Tecate, B.C.',
+            lat: 32.5149,
+            lng: -117.0382,
+            mapEmbed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d107674.81224238113!2d-116.75658280273439!3d32.50376190000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80d90e06f0ef15b1%3A0xf91a8fc3c665621!2sRancho%20Tecate!5e0!3m2!1ses-419!2smx!4v1762810402412!5m2!1ses-419!2smx" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade'
+        },
         showButton: false
     },
     {
         id: 2,
-        image: HouseDep1.src,
-        status: 'For Rent',
-        statusColor: 'gold',
-        beds: 5,
-        baths: 5,
-        sqft: '450',
-        title: '5-Bedroom Duplex',
-        price: '€2,100,000',
-        showButton: false
-    },
-    {
-        id: 3,
-        image: HouseDep1.src,
-        status: 'For Sale',
-        statusColor: 'red',
-        beds: 6,
-        baths: 8,
-        sqft: '2,000',
-        title: 'Apartment in Lisbon',
-        price: '€520,000',
-        showButton: true
-    },
-    {
-        id: 4,
-        image: HouseDep1.src,
-        status: 'For Sale',
-        statusColor: 'red',
-        beds: 3,
-        baths: 3,
-        sqft: '1,200',
-        title: 'Modern Villa',
-        price: '$750,000',
-        showButton: false
-    },
-    {
-        id: 5,
-        image: HouseDep1.src,
-        status: 'For Rent',
+        images: [
+            Azaleas1.src,
+            Azaleas2.src,
+            Azaleas3.src,
+            Azaleas4.src,
+            Azaleas5.src,
+            Azaleas6.src
+        ],
+        status: 'Venta',
         statusColor: 'gold',
         beds: 2,
         baths: 2,
-        sqft: '800',
-        title: 'Downtown Apartment',
-        price: '$2,500/mo',
-        showButton: true
+        sqft: '134 mts2',
+        title: 'Casa Azaleas',
+        price: '$365,500 Dlls',
+        description: 'Esta linda propiedad consta de cocina, elaborada toda en madera y cubierta de cuarzo, medio baño, amplio espacio para sala y comedor con salida a un acogedor patio interior que permite la ventilación e iluminación natural. En planta alta podemos encontra tres habitaciones, la principal con walk in closet y baño propio, las dos habitaciones secundarias, cada una con su closet comparten un baño completo. El rooftop, cuenta con una pérgola ya instalada e instalación para asador y medio baño para recibir a amigos y familiares. La casa cuenta con cochera para dos autos, equipada con tanque de gas estacionario, cisterna de 5000 lts y boiler. Se encuentra ubicada dentro de una privada de 10 casas y esta lista para habitar.',
+        features: [
+            'Cocina',
+            'Sala',
+            'Comedor',
+            'Medio Baño',
+            'Patio Interior',
+            'Cochera para dos autos',
+            '3 habitaciones (la principal con walk in closet y baño)',
+            '2 baños completos',
+            'Pergola',
+            'Tanque estacionario',
+            'Cisterna de 5,000 lts',
+            'Instalación para baño en rooftop',
+            'Cocina y closets de madera',
+            'Cubierta de cuarzo',
+            'Cancelería en baños',
+            'Acabados delujo',
+            'Instalación para Mini Splits'
+        
+        ],
+        location: {
+            address: 'Calle Dátil #14781, Fraccionamiento Ls Arboles, 22117 Tijuana, B.C.',
+            lat: 32.5250,
+            lng: -117.0330,
+            mapEmbed: 'https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3365.2051938629247!2d-116.9628333!3d32.4939444!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzLCsDI5JzM4LjIiTiAxMTbCsDU3JzQ2LjIiVw!5e0!3m2!1ses-419!2smx!4v1762811119770!5m2!1ses-419!2smx" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade'
+        },
+        showButton: false
+    },
+   {
+        id: 3,
+        images: [
+            Cha1.src,
+            Cha2.src,
+            Cha3.src,
+            Cha4.src,
+            Cha5.src,
+            Cha6.src
+        ],
+        status: 'Venta',
+        statusColor: 'gold',
+        beds: 3,
+        baths: 3,
+        sqft: '400 mts2',
+        title: 'Casa Hacienda Agua Caliente',
+        price: '$14,000,000 MXN',
+        description: 'La casa cuenta con 3 recámaras, cada una con su baño y la principal con walk in closet y ampliación. Planta baja, sala, cocina, comedor, cuarto de lavado con área de almacenamiento cochera para dos autos con portón eléctrico. Patio posterior con terraza en planta baja y gimnasio con sauna y baño en planta alta. Cuenta con un sistema de 12 paneles solares ya instalados, sistema de voz y datos, calefacción, AC central y cisterna de 5,000 lts. La casa se entrega en obra blanca, en el precio se incluyen algunos materiales para terminarla, cabe mencionar que son de excelente calidad. Ubicada sobre sobre calle Saturno, Hacienda Agua Caliente, Segunda Etapa, zona de mucho crecimiento.',
+        features: [
+            'Recibidor',
+            'Sala',
+            'Comedor',
+            'Cocina',
+            'Medio baño',
+            'Area de lavado',
+            'Terraza con gimnasio Sauna y baño completo',
+            'Cochera para dos autos',
+            '3 habitaciones (la principal con walk in closet y baño)',
+            'Area de estar',
+            '3 baños completos',
+            'Sistema de voz y datos',
+            'Calefacción y AC central',
+            'Portón eléctrico',
+            'Mini Split en gimnasio',
+            'Cisterna con sistema de hidroneumático',
+            'Sistema de 12 paneles solares ya instalados'
+        
+        ],
+        location: {
+            address: 'Calle Saturno 6043, Colonia Hacienda Agua Caliente, Segunta etapa, Tijuna, BC',
+            lat: 32.5250,
+            lng: -117.0330,
+            mapEmbed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3606.30278920402!2d-117.0081021!3d32.49145409999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80d9379400d5bc5b%3A0x84aa44ada7e2d88e!2sCasa%20Hacienda%20Aguacaliente!5e1!3m2!1ses-419!2smx!4v1762827255114!5m2!1ses-419!2smx" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade'
+        },
+        showButton: false
+    },
+     {
+        id: 4,
+        images: [
+            Chip1.src,
+            Chip2.src,
+            Chip3.src,
+            Chip4.src,
+            Chip5.src,
+            Chip6.src
+        ],
+        status: 'Venta',
+        statusColor: 'gold',
+        beds: 3,
+        baths: 2,
+        sqft: '240 mts2',
+        title: 'Casa Hipodromo',
+        price: '$2,400 Dlls',
+        description: 'Casa en excelente ubicación, ideal para negocio o vivienda. La casa cuenta con tres habitaciones, la principal con walk in closet y baño completo con jacuzzi. Dos recámaras secundarias con baño compartido, las habitaciones se conectan con un pequeño patio interior. Estancia, sala, cocina, y comedor. Cochera para dos autos y equipada con 2 boilers, cisterna, un mini split y portones eléctricos. La propiedad se encuentra ubicada en una zona con todos los servicios al alcance, escuelas, supermercados, cafés, restaurantes, farmacias y más.',
+        features: [
+            'Recibidor',
+            'Sala',
+            'Comedor',
+            'Cocina',
+            'Medio baño',
+            '3 habitaciones',
+            '2 baños completos',
+            'Patio interior',
+            'Cuarto de lavado/servicio con baño completo',
+            'Cocina Integral',
+            '2 Boilers',
+            'Lavadero',
+            'Cisterna'
+        ],
+        location: {
+            address: 'Calle Trincheras 6, Hipodromo, 22020, Tijuana, B.C.',
+            lat: 32.5250,
+            lng: -117.0330,
+            mapEmbed: 'https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3605.6808596098294!2d-117.00044699999998!3d32.506966000000006!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzLCsDMwJzI1LjEiTiAxMTfCsDAwJzAxLjYiVw!5e1!3m2!1ses-419!2smx!4v1762827742870!5m2!1ses-419!2smx" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade'
+        },
+        showButton: false
+    },
+     {
+        id: 5,
+        images: [
+            Clv6.src,
+            Clv2.src,
+            Clv3.src,
+            Clv4.src,
+            Clv5.src,
+            Clv1.src
+        ],
+        status: 'Venta',
+        statusColor: 'gold',
+        beds: 3,
+        baths: 2,
+        sqft: '115 mts2',
+        title: 'Casa Lomas de la Villa',
+        price: '$4,100,000 MXN',
+        description: 'Casa de 3 habitaciones, 2.5 baños, cocina y estacionamiento para 2 autos. Esta linda propiedad se encuentra ubicada dentro de una privada de 10 casas con acceso controlado. Cerca de escuelas, tiendas de autoservicio y plazas comerciales. Lista para habitarse. La zona cuenta con escuelas, áreas comerciales y tiendas de auto servicio, asi mismo, cuenta con calles y avenidas pavimentadas y acceso a vialidades principales.',
+        features: [
+            'Cocina integral con cubierta de granito',
+            'Área de sala y comedor',
+            'Medio baño',
+            'Área de lavado',
+            'Área para almacenar',
+            'Estacionamiento para dos autos',
+            '3 habitaciones (la principal con walk in closet y baño)',
+            '2 baños completos',
+            'Puerta eléctrica de acceso a la privada',
+        ],
+        location: {
+            address: 'Calle La Paz 5601, Lomas Del Pacifico, 22614, Tijuana, B.C.',
+            lat: 32.5250,
+            lng: -117.0330,
+            mapEmbed: 'https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d28841.887311636678!2d-117.0810527!3d32.5180596!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80d9490023120afb%3A0x4232d1c606856a91!2sLOMAS%20DE%20LA%20VILLA!5e1!3m2!1ses-419!2smx!4v1762829364255!5m2!1ses-419!2smx" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade'
+        },
+        showButton: false
     },
     {
         id: 6,
-        image: HouseDep1.src,
-        status: 'For Sale',
-        statusColor: 'red',
-        beds: 5,
-        baths: 6,
-        sqft: '3,500',
-        title: 'Luxury Estate',
-        price: '$1,850,000',
+        images: [
+            Madred1.src,
+            Madred2.src,
+            Madred3.src,
+            Madred4.src,
+            Madred5.src,
+            Madred6.src
+        ],
+        status: 'Venta',
+        statusColor: 'gold',
+        beds: 3,
+        baths: 2,
+        sqft: '149 mts2',
+        title: 'Casa Madeira Residencial',
+        price: '$3,500,000 MXN',
+        description: 'Esta linda propiedad se encuentra dentro de una privada muy segura y tranquila, habitada principalmente por una comunidad muy tranquila, en su mayoría extranjeros. La planta baja consta de cocina totalmente equipada, espacio de sala y comedor, un baño completo y área de lavado con espacio suficiente para almacenaje tambien. En planta alta encontrarás tres habitaciones muy bien iluminadas, cada una con closets elaborados con madera birch y un baño completo. La casa tambien cuenta con terreno excedente con preparación en barda lateral para un segundo nivel. Ademas de ser la última casa de la manzana, se encuentra ubicada en la parte mas alta de la privada, lo cual permitiría, en caso de hacer una ampliacion, tener vista a la ciudad!',
+        features: [
+            'Cocina equipada con estufa, campana tipo horno y refrigerador.',
+            'Espacio para sala y comedor',
+            'Baño completo',
+            'Area de lavado cerrada con espacio para almacenaje',
+            'Estacionamiento para tres autos',
+            'Ampliacion con capacidad para otro auto',
+            'Tres habitaciones con closet',
+            'Baño completo',
+            'Portón eléctrico',
+            'Tanque estacionario',
+            'Tinaco para 1000 lts',
+        ],
+        location: {
+            address: 'Priv. Moniz, Fracc. Madeira. Cuesta Blanca 22650, Cuesta Blanca, BC.',
+            lat: 32.5250,
+            lng: -117.0330,
+            mapEmbed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3609.172800527752!2d-117.0275135!3d32.41978590000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80d93728bfc00ba9%3A0xf5b7813eacb10c96!2sMadeira%20Residencial!5e1!3m2!1sen!2smx!4v1762830031043!5m2!1sen!2smx" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade'
+        },
         showButton: false
-    }
+    },
 ]
 ---
 
 <section class="depart">
     <div class="depart-cont">
-            <h2>Conozca nuestras oportunidades de inversión exclusivas.</h2>
+        <h2>Las mejores oportunidades del mercado inmobiliario.</h2>
     </div>
 
-<section class="properties-section">
-    <div class="properties-container">
-        <div class="properties-grid">
-            {properties.map((property) => (
-                <div class="property-card">
-                    <div class="property-image">
-                        <img src={property.image} alt={property.title} />
-                        <span class={`status-badge ${property.statusColor}`}>
-                            {property.status}
-                        </span>
-                        {property.showButton && (
-                            <button class="view-listing-btn">
-                                <i class="bi bi-house-door"></i>
-                                View Listing
-                            </button>
-                        )}
-                    </div>
-                    
-                    <div class="property-info">
-                        <div class="property-specs">
-                            <span class="spec">
-                                <i class="bi bi-house"></i>
-                                {property.beds} Beds
+    <section class="properties-section">
+        <div class="properties-container">
+            <div class="properties-grid">
+                {properties.map((property) => (
+                    <div class="property-card" data-property-id={property.id}>
+                        <div class="property-image">
+                            <img src={property.images[0]} alt={property.title} />
+                            <span class={`status-badge ${property.statusColor}`}>
+                                {property.status}
                             </span>
-                            <span class="spec">
-                                <i class="bi bi-droplet"></i>
-                                {property.baths} Baths
-                            </span>
-                            <span class="spec">
-                                <i class="bi bi-arrows-fullscreen"></i>
-                                {property.sqft} SQR FT
-                            </span>
+                            {property.showButton && (
+                                <button class="view-listing-btn">
+                                    <i class="bi bi-house-door"></i>
+                                    View Listing
+                                </button>
+                            )}
                         </div>
                         
-                        <h3 class="property-title">{property.title}</h3>
-                        <p class="property-price">{property.price}</p>
+                        <div class="property-info">
+                            <div class="property-specs">
+                                <span class="spec">
+                                    <i class="bi bi-house"></i>
+                                    {property.beds} Recamaras
+                                </span>
+                                <span class="spec">
+                                    <i class="bi bi-droplet"></i>
+                                    {property.baths} Baños
+                                </span>
+                                <span class="spec">
+                                    <i class="bi bi-arrows-fullscreen"></i>
+                                    {property.sqft}
+                                </span>
+                            </div>
+                            
+                            <h3 class="property-title">{property.title}</h3>
+                            <p class="property-price">{property.price} </p>
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal / Popup -->
+    <div class="property-modal" id="propertyModal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <!-- Botón cerrar -->
+            <button class="modal-close" id="modalClose">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="white" viewBox="0 0 16 16">
+                    <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
+                </svg>
+            </button>
+
+            <!-- Galería de imágenes -->
+            <div class="modal-gallery">
+                <div class="gallery-main">
+                    <img id="modalMainImg" src="" alt="Property" />
+                    <span class="modal-badge" id="modalBadge">Venta</span>
+                    
+                    <!-- Controles de galería -->
+                    <button class="gallery-prev" id="galleryPrev">
+                        <i class="bi bi-chevron-left"></i>
+                    </button>
+                    <button class="gallery-next" id="galleryNext">
+                        <i class="bi bi-chevron-right"></i>
+                    </button>
+                </div>
+                
+                <!-- Miniaturas -->
+                <div class="gallery-thumbnails" id="galleryThumbs">
+                    <!-- Las miniaturas se generarán dinámicamente -->
+                </div>
+            </div>
+
+            <!-- Tabs de navegación -->
+            <div class="modal-tabs">
+                <button class="tab-btn active" data-tab="overview">
+                    <i class="bi bi-info-circle"></i>
+                    Vista General
+                </button>
+                <button class="tab-btn" data-tab="features">
+                    <i class="bi bi-list-check"></i>
+                    Características
+                </button>
+                <button class="tab-btn" data-tab="location">
+                    <i class="bi bi-geo-alt"></i>
+                    Ubicación
+                </button>
+            </div>
+
+            <!-- Contenido de tabs -->
+            <div class="modal-info">
+                <!-- Tab: Vista General -->
+                <div class="tab-content active" id="tab-overview">
+                    <h2 id="modalTitle">Property Title</h2>
+                    
+                    <div class="modal-specs">
+                        <span class="modal-spec">
+                            <i class="bi bi-house"></i>
+                            <span id="modalBeds">0</span> Recamaras
+                        </span>
+                        <span class="modal-spec">
+                            <i class="bi bi-droplet"></i>
+                            <span id="modalBaths">0</span> Baños
+                        </span>
+                        <span class="modal-spec">
+                            <i class="bi bi-arrows-fullscreen"></i>
+                            <span id="modalSqft">0</span> 
+                        </span>
+                    </div>
+
+                    <div class="modal-price">
+                        <span id="modalPrice">$0</span>
+                    </div>
+
+                    <div class="modal-description">
+                        <h3>Descripción</h3>
+                        <p id="modalDescription">Property description will appear here.</p>
                     </div>
                 </div>
-            ))}
+
+                <!-- Tab: Características -->
+                <div class="tab-content" id="tab-features">
+                    <h2>Características Principales</h2>
+                    <ul class="features-list" id="featuresList">
+                        <!-- Las características se generarán dinámicamente -->
+                    </ul>
+                </div>
+
+                <!-- Tab: Ubicación -->
+                <div class="tab-content" id="tab-location">
+                    <h2>Ubicación</h2>
+                    <div class="location-address">
+                        <i class="bi bi-geo-alt-fill"></i>
+                        <span id="locationAddress">Address</span>
+                    </div>
+                    <div class="location-map" id="locationMap">
+                        <!-- El mapa se insertará dinámicamente -->
+                    </div>
+                </div>
+
+                <!-- Botones de acción (siempre visibles) -->
+                <div class="modal-actions">
+                    <button class="btn-contact">
+                        <i class="bi bi-telephone"></i>
+                        Contactar
+                    </button>
+                    <button class="btn-schedule">
+                        <i class="bi bi-calendar-check"></i>
+                        Agendar Visita
+                    </button>
+                </div>
+            </div>
         </div>
     </div>
 </section>
-</section>
+
+<script define:vars={{ properties }}>
+    const propertyCards = document.querySelectorAll('.property-card');
+    const modal = document.getElementById('propertyModal');
+    const modalClose = document.getElementById('modalClose');
+    const modalOverlay = document.querySelector('.modal-overlay');
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    const tabContents = document.querySelectorAll('.tab-content');
+    
+    let currentProperty = null;
+    let currentImageIndex = 0;
+
+    // Función para cambiar tabs
+    tabBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const tabName = btn.getAttribute('data-tab');
+            
+            // Remover active de todos
+            tabBtns.forEach(b => b.classList.remove('active'));
+            tabContents.forEach(c => c.classList.remove('active'));
+            
+            // Agregar active al seleccionado
+            btn.classList.add('active');
+            document.getElementById(`tab-${tabName}`).classList.add('active');
+        });
+    });
+
+    // Función para actualizar galería
+    function updateGallery(index) {
+        if (!currentProperty) return;
+        
+        currentImageIndex = index;
+        const mainImg = document.getElementById('modalMainImg');
+        mainImg.src = currentProperty.images[index];
+        
+        // Actualizar miniaturas activas
+        const thumbs = document.querySelectorAll('.gallery-thumb');
+        thumbs.forEach((thumb, i) => {
+            thumb.classList.toggle('active', i === index);
+        });
+    }
+
+    // Controles de galería
+    document.getElementById('galleryPrev')?.addEventListener('click', () => {
+        if (!currentProperty) return;
+        const newIndex = currentImageIndex === 0 ? 
+            currentProperty.images.length - 1 : currentImageIndex - 1;
+        updateGallery(newIndex);
+    });
+
+    document.getElementById('galleryNext')?.addEventListener('click', () => {
+        if (!currentProperty) return;
+        const newIndex = currentImageIndex === currentProperty.images.length - 1 ? 
+            0 : currentImageIndex + 1;
+        updateGallery(newIndex);
+    });
+
+    // Abrir modal al hacer clic en una propiedad
+    propertyCards.forEach(card => {
+        card.addEventListener('click', () => {
+            const propertyId = parseInt(card.getAttribute('data-property-id'));
+            const property = properties.find(p => p.id === propertyId);
+            
+            if (property) {
+                currentProperty = property;
+                currentImageIndex = 0;
+                
+                // Información básica
+                document.getElementById('modalTitle').textContent = property.title;
+                document.getElementById('modalBeds').textContent = property.beds;
+                document.getElementById('modalBaths').textContent = property.baths;
+                document.getElementById('modalSqft').textContent = property.sqft;
+                document.getElementById('modalPrice').textContent = property.price;
+                document.getElementById('modalDescription').textContent = property.description;
+                
+                const badge = document.getElementById('modalBadge');
+                badge.textContent = property.status;
+                badge.className = 'modal-badge ' + property.statusColor;
+                
+                // Galería de imágenes
+                document.getElementById('modalMainImg').src = property.images[0];
+                const thumbsContainer = document.getElementById('galleryThumbs');
+                thumbsContainer.innerHTML = '';
+                
+                property.images.forEach((img, index) => {
+                    const thumb = document.createElement('div');
+                    thumb.className = `gallery-thumb ${index === 0 ? 'active' : ''}`;
+                    thumb.innerHTML = `<img src="${img}" alt="Thumb ${index + 1}">`;
+                    thumb.addEventListener('click', () => updateGallery(index));
+                    thumbsContainer.appendChild(thumb);
+                });
+                
+                // Características
+                const featuresList = document.getElementById('featuresList');
+                featuresList.innerHTML = '';
+                property.features.forEach(feature => {
+                    const li = document.createElement('li');
+                    li.innerHTML = `
+                        <i class="bi bi-check-circle-fill"></i>
+                        <span>${feature}</span>
+                    `;
+                    featuresList.appendChild(li);
+                });
+                
+                // Ubicación
+                document.getElementById('locationAddress').textContent = property.location.address;
+                const mapContainer = document.getElementById('locationMap');
+                mapContainer.innerHTML = `
+                    <iframe 
+                        src="${property.location.mapEmbed}" 
+                        width="100%" 
+                        height="400" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                `;
+                
+                // Resetear a la primera tab
+                tabBtns.forEach(b => b.classList.remove('active'));
+                tabContents.forEach(c => c.classList.remove('active'));
+                tabBtns[0].classList.add('active');
+                tabContents[0].classList.add('active');
+                
+                // Mostrar modal
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+        });
+    });
+
+    // Cerrar modal
+    function closeModal() {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+        currentProperty = null;
+    }
+
+    modalClose?.addEventListener('click', closeModal);
+    modalOverlay?.addEventListener('click', closeModal);
+
+    // Cerrar con tecla ESC
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('active')) {
+            closeModal();
+        }
+    });
+
+    // Navegación con teclado en galería
+    document.addEventListener('keydown', (e) => {
+        if (!modal.classList.contains('active')) return;
+        
+        if (e.key === 'ArrowLeft') {
+            document.getElementById('galleryPrev')?.click();
+        } else if (e.key === 'ArrowRight') {
+            document.getElementById('galleryNext')?.click();
+        }
+    });
+</script>
