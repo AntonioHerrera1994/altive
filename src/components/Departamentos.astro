@@ -468,8 +468,30 @@ const properties = [
             </div>
         </div>
     </div>
+    <!-- Modal de imagen completa -->
+<div class="image-fullscreen-modal" id="imageFullscreenModal">
+    <div class="fullscreen-overlay"></div>
+    <div class="fullscreen-content">
+        <button class="fullscreen-close" id="fullscreenClose">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="white" viewBox="0 0 16 16">
+                <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
+            </svg>
+        </button>
+        <img id="fullscreenImage" src="" alt="Imagen completa" />
+        
+        <!-- Controles de navegación -->
+        <button class="fullscreen-prev" id="fullscreenPrev">
+            <i class="bi bi-chevron-left"></i>
+        </button>
+        <button class="fullscreen-next" id="fullscreenNext">
+            <i class="bi bi-chevron-right"></i>
+        </button>
+        
+        <!-- Contador de imágenes -->
+        <div class="image-counter" id="imageCounter">1 / 6</div>
+    </div>
+</div>
 </section>
-
 <script define:vars={{ properties }}>
     const propertyCards = document.querySelectorAll('.property-card');
     const modal = document.getElementById('propertyModal');
@@ -477,6 +499,15 @@ const properties = [
     const modalOverlay = document.querySelector('.modal-overlay');
     const tabBtns = document.querySelectorAll('.tab-btn');
     const tabContents = document.querySelectorAll('.tab-content');
+    
+    // Variables para modal de imagen completa
+    const imageFullscreenModal = document.getElementById('imageFullscreenModal');
+    const fullscreenImage = document.getElementById('fullscreenImage');
+    const fullscreenClose = document.getElementById('fullscreenClose');
+    const fullscreenOverlay = document.querySelector('.fullscreen-overlay');
+    const fullscreenPrev = document.getElementById('fullscreenPrev');
+    const fullscreenNext = document.getElementById('fullscreenNext');
+    const imageCounter = document.getElementById('imageCounter');
     
     let currentProperty = null;
     let currentImageIndex = 0;
@@ -511,7 +542,49 @@ const properties = [
         });
     }
 
-    // Controles de galería
+    // Función para abrir imagen en pantalla completa
+    function openFullscreenImage(index) {
+        if (!currentProperty) return;
+        
+        currentImageIndex = index;
+        fullscreenImage.src = currentProperty.images[index];
+        imageFullscreenModal.classList.add('active');
+        updateImageCounter();
+    }
+
+    // Función para actualizar contador
+    function updateImageCounter() {
+        if (!currentProperty) return;
+        imageCounter.textContent = `${currentImageIndex + 1} / ${currentProperty.images.length}`;
+    }
+
+    // Cerrar modal de imagen completa
+    function closeFullscreenImage() {
+        imageFullscreenModal.classList.remove('active');
+    }
+
+    // Eventos del modal de imagen completa
+    fullscreenClose?.addEventListener('click', closeFullscreenImage);
+    fullscreenOverlay?.addEventListener('click', closeFullscreenImage);
+
+    // Navegación en imagen completa
+    fullscreenPrev?.addEventListener('click', () => {
+        if (!currentProperty) return;
+        const newIndex = currentImageIndex === 0 ? 
+            currentProperty.images.length - 1 : currentImageIndex - 1;
+        openFullscreenImage(newIndex);
+        updateGallery(newIndex);
+    });
+
+    fullscreenNext?.addEventListener('click', () => {
+        if (!currentProperty) return;
+        const newIndex = currentImageIndex === currentProperty.images.length - 1 ? 
+            0 : currentImageIndex + 1;
+        openFullscreenImage(newIndex);
+        updateGallery(newIndex);
+    });
+
+    // Controles de galería del modal principal
     document.getElementById('galleryPrev')?.addEventListener('click', () => {
         if (!currentProperty) return;
         const newIndex = currentImageIndex === 0 ? 
@@ -549,7 +622,13 @@ const properties = [
                 badge.className = 'modal-badge ' + property.statusColor;
                 
                 // Galería de imágenes
-                document.getElementById('modalMainImg').src = property.images[0];
+                const mainImg = document.getElementById('modalMainImg');
+                mainImg.src = property.images[0];
+                
+                // IMPORTANTE: Agregar evento click a la imagen principal
+                mainImg.style.cursor = 'pointer';
+                mainImg.onclick = () => openFullscreenImage(currentImageIndex);
+                
                 const thumbsContainer = document.getElementById('galleryThumbs');
                 thumbsContainer.innerHTML = '';
                 
@@ -601,7 +680,7 @@ const properties = [
         });
     });
 
-    // Cerrar modal
+    // Cerrar modal principal
     function closeModal() {
         modal.classList.remove('active');
         document.body.style.overflow = '';
@@ -613,19 +692,32 @@ const properties = [
 
     // Cerrar con tecla ESC
     document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && modal.classList.contains('active')) {
-            closeModal();
+        if (e.key === 'Escape') {
+            if (imageFullscreenModal.classList.contains('active')) {
+                closeFullscreenImage();
+            } else if (modal.classList.contains('active')) {
+                closeModal();
+            }
         }
     });
 
-    // Navegación con teclado en galería
+    // Navegación con teclado
     document.addEventListener('keydown', (e) => {
-        if (!modal.classList.contains('active')) return;
-        
-        if (e.key === 'ArrowLeft') {
-            document.getElementById('galleryPrev')?.click();
-        } else if (e.key === 'ArrowRight') {
-            document.getElementById('galleryNext')?.click();
+        // Navegación en imagen completa
+        if (imageFullscreenModal.classList.contains('active')) {
+            if (e.key === 'ArrowLeft') {
+                fullscreenPrev?.click();
+            } else if (e.key === 'ArrowRight') {
+                fullscreenNext?.click();
+            }
+        }
+        // Navegación en modal principal
+        else if (modal.classList.contains('active')) {
+            if (e.key === 'ArrowLeft') {
+                document.getElementById('galleryPrev')?.click();
+            } else if (e.key === 'ArrowRight') {
+                document.getElementById('galleryNext')?.click();
+            }
         }
     });
 </script>
