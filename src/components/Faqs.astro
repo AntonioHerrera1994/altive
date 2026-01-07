@@ -2,57 +2,141 @@
 import '../styles/faqs.css'
 
 const faqs = [
+    // VENTA
     {
         id: 1,
-        question: 'What services does HavenSpot offer?',
-        answer: 'HavenSpot provides a wide range of real estate services, including property sales, rentals, investment consulting, property management, and real estate advisory services.'
+        category: 'venta',
+        question: '¿Cómo determino el precio de mi propiedad?',
+        answer: 'El precio se establece mediante un análisis de mercado comparativo, considerando ubicación, tamaño, condiciones del inmueble y precios de propiedades similares vendidas recientemente.'
     },
     {
         id: 2,
-        question: 'How can I find a property through HavenSpot?',
-        answer: 'You can browse our extensive property listings on our website, use our advanced search filters, or contact our agents directly. We offer personalized assistance to help you find the perfect property that meets your needs and budget.'
+        category: 'venta',
+        question: '¿Qué documentos necesito para vender mi propiedad?',
+        answer: 'Generalmente se requiere escritura, identificación oficial, comprobante de pago de impuestos, planos o levantamiento, e inscripción al Registro Público de la Propiedad.'
     },
     {
         id: 3,
-        question: 'Does HavenSpot help with mortgage financing?',
-        answer: 'Yes, we work with trusted financial partners to help you secure mortgage financing. Our team can guide you through the application process and connect you with lenders who offer competitive rates.'
+        category: 'venta',
+        question: '¿Cuánto tiempo tarda en venderse una propiedad?',
+        answer: 'Depende del precio, ubicación y las condiciones del mercado, pero en promedio puede tomar entre 3 y 6 meses si está bien valuada y promocionada.'
     },
     {
         id: 4,
-        question: 'How do I list my property for sale or rent with HavenSpot?',
-        answer: 'Listing your property is easy. Simply contact us through our website or call our office. Our team will schedule a property evaluation, discuss pricing strategies, and create a comprehensive marketing plan to attract qualified buyers or renters.'
+        category: 'venta',
+        question: '¿Por qué vender mi propiedad con un agente inmobiliario?',
+        answer: 'Un agente ofrece valuación profesional, promoción efectiva, filtrado de compradores, asesoría y acompañamiento durante todo el proceso.'
     },
+    // RENTA
     {
         id: 5,
-        question: 'Are the properties listed on HavenSpot verified?',
-        answer: 'Absolutely. We conduct thorough verification checks on all properties listed on our platform. This includes confirming ownership, inspecting property conditions, and ensuring all legal documentation is in order to provide you with peace of mind.'
+        category: 'renta',
+        question: '¿Cómo puedo saber cuánto cobrar de renta?',
+        answer: 'Se realiza un estudio de mercado tomando en cuenta ubicación, tipo de propiedad, estado del inmueble y precios de rentas similares en la zona.'
+    },
+    {
+        id: 6,
+        category: 'renta',
+        question: '¿Qué requisitos se solicitan a un inquilino?',
+        answer: 'Normalmente identificación oficial, comprobantes de ingresos, referencias, depósito en garantía y solidario obligado con propiedad a su nombre o póliza jurídica.'
+    },
+    {
+        id: 7,
+        category: 'renta',
+        question: '¿Cuánto tiempo tarda el proceso para rentar una propiedad?',
+        answer: 'Puede variar, pero generalmente entre 2 y 6 semanas, dependiendo del precio y la oferta y demanda del mercado.'
+    },
+    {
+        id: 8,
+        category: 'renta',
+        question: '¿Qué es un contrato de arrendamiento?',
+        answer: 'Es un documento legal que establece derechos y obligaciones del propietario y del inquilino, así como plazo, renta y condiciones del uso del inmueble.'
+    },
+    // ADMINISTRACIÓN
+    {
+        id: 9,
+        category: 'administracion',
+        question: '¿Qué incluye el servicio de administración de propiedades?',
+        answer: 'Cobro de rentas, seguimiento de pagos, mantenimiento, atención a inquilinos, manejo de contratos y reportes periódicos al propietario.'
+    },
+    {
+        id: 10,
+        category: 'administracion',
+        question: '¿Por qué contratar un administrador de propiedades?',
+        answer: 'Ahorra tiempo, reduce riesgos, garantiza pagos puntuales y asegura el correcto mantenimiento del inmueble.'
+    },
+    {
+        id: 11,
+        category: 'administracion',
+        question: '¿Qué pasa si el inquilino no paga la renta?',
+        answer: 'El administrador realiza la gestión de cobranza y, de ser necesario, inicia los procesos legales conforme al contrato y la legislación vigente.'
+    },
+    {
+        id: 12,
+        category: 'administracion',
+        question: '¿Cómo se manejan las reparaciones y el mantenimiento?',
+        answer: 'Se coordinan con proveedores confiables, siempre informando al propietario y buscando la mejor relación costo-beneficio.'
+    },
+    // GENERALES
+    {
+        id: 13,
+        category: 'generales',
+        question: '¿Cobran comisión por sus servicios?',
+        answer: 'Sí, las comisiones varían según el servicio (venta, renta, administración) y se explican claramente desde el inicio.'
+    },
+    {
+        id: 14,
+        category: 'generales',
+        question: '¿Puedo administrar mi propiedad si vivo en otra ciudad o país?',
+        answer: 'Sí, la administración permite que el propietario reciba reportes y pagos sin necesidad de estar presente físicamente.'
+    },
+    {
+        id: 15,
+        category: 'generales',
+        question: '¿Ofrecen asesoría fiscal y legal?',
+        answer: 'Se brinda asesoría básica y, cuando es necesario, se canaliza con especialistas legales y fiscales.'
     }
 ]
 ---
 
-<div class="accordion" id="faqs">
+<div class="faqs-section">
+    <div class="textos-faqs">
+        <h2>Preguntas frecuentes</h2>
+    </div>
 
-       <div class="textos-faqs">
-            <h2>Preguntas frecuentes</h2>
-        </div>
+    <!-- Tabs de filtrado -->
+    <div class="faq-tabs">
+        <button class="tab-button active" data-category="venta">Venta</button>
+        <button class="tab-button" data-category="renta">Renta</button>
+        <button class="tab-button" data-category="administracion">Administración</button>
+        <button class="tab-button" data-category="generales">Generales</button>
+    </div>
 
-    {faqs.map((faq, index) => (
-        <div class={`accordion-item ${index === 0 ? 'active' : ''}`}>
-            <button class="accordion-header">
-                <span class="accordion-question">{faq.question}</span>
-                <span class="accordion-icon">
-                    <i class="icon-plus">+</i>
-                    <i class="icon-minus">−</i>
-                </span>
-            </button>
-            <div class="accordion-content">
-                <p>{faq.answer}</p>
+    <!-- Acordeón -->
+    <div class="accordion" id="faqs">
+        {faqs.map((faq, index) => (
+            <div 
+                class={`accordion-item ${index === 0 ? 'active' : ''}`}
+                data-category={faq.category}
+                style={faq.category !== 'venta' ? 'display: none;' : ''}
+            >
+                <button class="accordion-header">
+                    <span class="accordion-question">{faq.question}</span>
+                    <span class="accordion-icon">
+                        <i class="icon-plus">+</i>
+                        <i class="icon-minus">−</i>
+                    </span>
+                </button>
+                <div class="accordion-content">
+                    <p>{faq.answer}</p>
+                </div>
             </div>
-        </div>
-    ))}
+        ))}
+    </div>
 </div>
 
-<script>
+<script is:inline>
+    // Manejo del acordeón
     const accordionHeaders = document.querySelectorAll('.accordion-header');
 
     accordionHeaders.forEach(header => {
@@ -60,7 +144,7 @@ const faqs = [
             const accordionItem = header.parentElement;
             const isActive = accordionItem?.classList.contains('active');
 
-            // Cerrar todos los items
+            // Cerrar todos los items visibles
             document.querySelectorAll('.accordion-item').forEach(item => {
                 item.classList.remove('active');
             });
@@ -68,6 +152,38 @@ const faqs = [
             // Si no estaba activo, abrirlo
             if (!isActive) {
                 accordionItem?.classList.add('active');
+            }
+        });
+    });
+
+    // Manejo de tabs
+    const tabButtons = document.querySelectorAll('.tab-button');
+    const accordionItems = document.querySelectorAll('.accordion-item');
+
+    tabButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const category = button.getAttribute('data-category');
+
+            // Actualizar tabs activos
+            tabButtons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+
+            // Filtrar items del acordeón
+            accordionItems.forEach(item => {
+                const itemCategory = item.getAttribute('data-category');
+                
+                if (itemCategory === category) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                    item.classList.remove('active');
+                }
+            });
+
+            // Abrir el primer item de la categoría seleccionada
+            const firstVisibleItem = document.querySelector(`.accordion-item[data-category="${category}"]`);
+            if (firstVisibleItem) {
+                firstVisibleItem.classList.add('active');
             }
         });
     });
