@@ -439,16 +439,24 @@ margin: 0;
     box-shadow: 0 8px 20px rgba(212, 160, 84, 0.4);
 }
 
-.btn-schedule {
+.btn-share {
     background-color: transparent;
     color: white;
     border: 2px solid #D4A054;
 }
 
-.btn-schedule:hover {
+.btn-share:hover {
     background-color: #D4A054;
     transform: translateY(-2px);
 }
+
+/* Animación de éxito al copiar */
+.btn-share.copied {
+    background-color: #D4A054;
+    border-color: #D4A054;
+}
+
+
 
 /* Scrollbar del modal */
 .modal-content::-webkit-scrollbar {
