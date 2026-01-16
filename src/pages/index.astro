@@ -1,11 +1,55 @@
 ---
-import Altive from '../pages/altive.astro';
-import Layout from '../layouts/Layout.astro';
+import NavBar from "../components/NavBar.astro"
+import Hero from "../components/Hero.astro"
+import Cinta from "../components/Cinta.astro"
+import About from "../components/About.astro"
+import Services from "../components/Services.astro"
+import Departamentos from "../components/Departamentos.astro"
+import Cinturon from "../components/Cinturon.astro"
+import Testimonios from "../components/Testimonios.astro"
+import Faqs from "../components/Faqs.astro"
+import Footer from "../components/Footer.astro"
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+
 ---
 
-<Layout>
-	<Altive />
-</Layout>
+<!doctype html>
+<html lang="en">
+	<head>
+<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+
+		 <title>Soluciones Inmobiliarias de Confianza - Altivé Realty</title>
+    <meta name="description" content="Altivé Realty ofrece servicios inmobiliarios integrales: compra, venta, renta y administración de propiedades. Encuentra tu hogar ideal con nosotros." />
+	  <meta name="keywords" content="bienes raíces, propiedades, casas en venta, departamentos en renta, inmobiliaria, Altivé Realty" />
+
+	  <link rel="icon" type="image/svg+xml" href="/transparente.svg" />
+	<meta property="og:image" content="https://tudominio.com/https://altive.realty/isotipo.png" />
+<meta name="twitter:image" content="https://altive.realty/isotipo.png" />
+
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+	</head>
+
+	<body>
+        <NavBar />
+         <Hero />
+         <Cinta />
+		 <About />
+		  <Services />
+		  <Departamentos />
+		  <Cinturon />
+		 
+		  <Faqs />
+		  <Footer />
+	</body>
+
+    		<script>
+			import "../scripts/menu.js"
+		</script>
+</html>
+
