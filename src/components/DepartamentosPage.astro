@@ -841,10 +841,10 @@ const properties = [
                         <i class="bi bi-telephone"></i>
                          <a href="https://wa.link/i8vr13" style="color:white;text-decoration: none;">Contactar</a>
                     </button>
-                    <button class="btn-schedule">
-                        <i class="bi bi-calendar-check"></i>
-                        Agendar Visita
-                    </button>
+                 <button class="btn-share" id="btnShare">
+        <i class="bi bi-share-fill"></i>
+        Compartir
+    </button>
                 </div>
             </div>
         </div>
@@ -981,6 +981,115 @@ const properties = [
         updateGallery(newIndex);
     });
 
+    // Función para generar enlace único de la propiedad
+    function generatePropertyUrl(propertyId) {
+        const baseUrl = window.location.origin + window.location.pathname;
+        return `${baseUrl}#propiedad-${propertyId}`;
+    }
+
+    // Función para compartir propiedad
+    async function shareProperty() {
+        if (!currentProperty) return;
+        
+        const propertyUrl = generatePropertyUrl(currentProperty.id);
+        const shareData = {
+            title: currentProperty.title,
+            text: `${currentProperty.title} - ${currentProperty.price}\n${currentProperty.description.substring(0, 100)}...`,
+            url: propertyUrl
+        };
+        
+        const btnShare = document.getElementById('btnShare');
+        
+        // Verificar si el navegador soporta Web Share API
+        if (navigator.share) {
+            try {
+                await navigator.share(shareData);
+                console.log('Contenido compartido exitosamente');
+            } catch (err) {
+                // Si el usuario cancela, no hacer nada
+                if (err.name !== 'AbortError') {
+                    console.log('Error al compartir:', err);
+                    // Fallback: copiar al portapapeles
+                    copyToClipboard(propertyUrl, btnShare);
+                }
+            }
+        } else {
+            // Fallback: copiar al portapapeles
+            copyToClipboard(propertyUrl, btnShare);
+        }
+    }
+
+    // Función para copiar al portapapeles
+    async function copyToClipboard(text, button) {
+        try {
+            await navigator.clipboard.writeText(text);
+            
+            // Feedback visual
+            const originalHTML = button.innerHTML;
+            button.innerHTML = '<i class="bi bi-check-circle-fill"></i> ¡Enlace copiado!';
+            button.classList.add('copied');
+            
+            setTimeout(() => {
+                button.innerHTML = originalHTML;
+                button.classList.remove('copied');
+            }, 2000);
+        } catch (err) {
+            console.error('Error al copiar:', err);
+            // Método alternativo para navegadores antiguos
+            fallbackCopyTextToClipboard(text, button);
+        }
+    }
+
+    // Método alternativo para copiar (para navegadores antiguos)
+    function fallbackCopyTextToClipboard(text, button) {
+        const textArea = document.createElement("textarea");
+        textArea.value = text;
+        textArea.style.position = "fixed";
+        textArea.style.left = "-999999px";
+        document.body.appendChild(textArea);
+        textArea.focus();
+        textArea.select();
+        
+        try {
+            const successful = document.execCommand('copy');
+            if (successful) {
+                const originalHTML = button.innerHTML;
+                button.innerHTML = '<i class="bi bi-check-circle-fill"></i> ¡Enlace copiado!';
+                button.classList.add('copied');
+                
+                setTimeout(() => {
+                    button.innerHTML = originalHTML;
+                    button.classList.remove('copied');
+                }, 2000);
+            }
+        } catch (err) {
+            console.error('Error al copiar:', err);
+        }
+        
+        document.body.removeChild(textArea);
+    }
+
+    // Función para abrir propiedad desde URL (si viene con hash)
+    function openPropertyFromUrl() {
+        const hash = window.location.hash;
+        if (hash.startsWith('#propiedad-')) {
+            const propertyId = parseInt(hash.replace('#propiedad-', ''));
+            const propertyCard = document.querySelector(`[data-property-id="${propertyId}"]`);
+            if (propertyCard) {
+                // Pequeño delay para asegurar que todo esté cargado
+                setTimeout(() => {
+                    propertyCard.click();
+                }, 100);
+            }
+        }
+    }
+
+    // Ejecutar al cargar la página
+    window.addEventListener('load', openPropertyFromUrl);
+
+    // Escuchar cambios en el hash
+    window.addEventListener('hashchange', openPropertyFromUrl);
+
     // Abrir modal al hacer clic en una propiedad
     propertyCards.forEach(card => {
         card.addEventListener('click', () => {
@@ -1055,9 +1164,21 @@ const properties = [
                 tabBtns[0].classList.add('active');
                 tabContents[0].classList.add('active');
                 
+                // Actualizar URL con el hash de la propiedad
+                history.replaceState(null, '', `#propiedad-${property.id}`);
+                
                 // Mostrar modal
                 modal.classList.add('active');
                 document.body.style.overflow = 'hidden';
+                
+                // Agregar evento al botón compartir
+                const btnShare = document.getElementById('btnShare');
+                if (btnShare) {
+                    // Remover eventos anteriores clonando el botón
+                    const newBtnShare = btnShare.cloneNode(true);
+                    btnShare.parentNode.replaceChild(newBtnShare, btnShare);
+                    newBtnShare.addEventListener('click', shareProperty);
+                }
             }
         });
     });
@@ -1067,6 +1188,8 @@ const properties = [
         modal.classList.remove('active');
         document.body.style.overflow = '';
         currentProperty = null;
+        // Limpiar el hash de la URL
+        history.replaceState(null, '', window.location.pathname);
     }
 
     modalClose?.addEventListener('click', closeModal);
