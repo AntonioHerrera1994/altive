@@ -456,6 +456,31 @@ margin: 0;
     border-color: #D4A054;
 }
 
+.btn-whatsapp {
+    background-color: #25D366;
+    color: white;
+    border: 2px solid #25D366;
+}
+
+.btn-whatsapp:hover {
+    background-color: #128C7E;
+    border-color: #128C7E;
+    transform: translateY(-2px);
+}
+
+/* Ajustar el grid de botones para 3 elementos */
+.modal-actions {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+@media (max-width: 768px) {
+    .modal-actions {
+        grid-template-columns: 1fr;
+    }
+}
+
 
 
 /* Scrollbar del modal */

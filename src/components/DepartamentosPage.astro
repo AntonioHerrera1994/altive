@@ -102,7 +102,7 @@ import Cerritos7 from '../assets/propiedades/cerritos/cerritos7.jpeg'
 const properties = [
     
     {
-        id: 1,
+        id: 14,
         images: [
             Cerritos1.src,
             Cerritos2.src,
@@ -638,7 +638,7 @@ const properties = [
         showButton: false
     },
     {
-        id: 14,
+        id: 1,
         images: [
             Cabana1.src,
             Cabana2.src,
@@ -686,6 +686,7 @@ const properties = [
     },
      
 ]
+
 ---
 
 <section class="depart">
@@ -696,8 +697,8 @@ const properties = [
     <section class="properties-section">
         <div class="properties-container">
             <div class="properties-grid">
-                {properties.map((property) => (
-                    <div class="property-card" data-property-id={property.id}>
+             {properties.sort((a, b) => b.id - a.id).map((property) => (
+        <div class="property-card" data-property-id={property.id}>
                         <div class="property-image">
                             <img src={property.images[0]} alt={property.title} />
                             <span class={`status-badge ${property.statusColor}`}>
@@ -836,16 +837,21 @@ const properties = [
                 </div>
 
                 <!-- Botones de acción (siempre visibles) -->
-                <div class="modal-actions">
-                      <button class="btn-contact">
-                        <i class="bi bi-telephone"></i>
-                         <a href="https://wa.link/i8vr13" style="color:white;text-decoration: none;">Contactar</a>
-                    </button>
-                 <button class="btn-share" id="btnShare">
+            <!-- Botones de acción (siempre visibles) -->
+<div class="modal-actions">
+    <button class="btn-contact">
+        <i class="bi bi-telephone"></i>
+        <a href="https://wa.link/i8vr13" style="color:white;text-decoration: none;">Contactar</a>
+    </button>
+    <button class="btn-whatsapp" id="btnWhatsapp">
+        <i class="bi bi-whatsapp"></i>
+        Compartir por WhatsApp
+    </button>
+    <button class="btn-share" id="btnShare">
         <i class="bi bi-share-fill"></i>
         Compartir
     </button>
-                </div>
+</div>
             </div>
         </div>
     </div>
@@ -1171,14 +1177,21 @@ const properties = [
                 modal.classList.add('active');
                 document.body.style.overflow = 'hidden';
                 
-                // Agregar evento al botón compartir
-                const btnShare = document.getElementById('btnShare');
-                if (btnShare) {
-                    // Remover eventos anteriores clonando el botón
-                    const newBtnShare = btnShare.cloneNode(true);
-                    btnShare.parentNode.replaceChild(newBtnShare, btnShare);
-                    newBtnShare.addEventListener('click', shareProperty);
-                }
+           // Agregar evento al botón de WhatsApp
+const btnWhatsapp = document.getElementById('btnWhatsapp');
+if (btnWhatsapp) {
+    const newBtnWhatsapp = btnWhatsapp.cloneNode(true);
+    btnWhatsapp.parentNode.replaceChild(newBtnWhatsapp, btnWhatsapp);
+    newBtnWhatsapp.addEventListener('click', shareViaWhatsApp);
+}
+
+// Agregar evento al botón compartir general
+const btnShare = document.getElementById('btnShare');
+if (btnShare) {
+    const newBtnShare = btnShare.cloneNode(true);
+    btnShare.parentNode.replaceChild(newBtnShare, btnShare);
+    newBtnShare.addEventListener('click', shareProperty);
+}
             }
         });
     });
@@ -1225,4 +1238,52 @@ const properties = [
             }
         }
     });
+
+    // Función para compartir por WhatsApp
+function shareViaWhatsApp() {
+    if (!currentProperty) return;
+    
+    const propertyUrl = generatePropertyUrl(currentProperty.id);
+    
+    // Mensaje personalizado para WhatsApp
+    const message = `🏠 *${currentProperty.title}*\n\n💰 ${currentProperty.price}\n\n📍 ${currentProperty.location.address}\n\n${currentProperty.description.substring(0, 150)}...\n\n🔗 Ver más detalles: ${propertyUrl}`;
+    
+    // Codificar el mensaje para URL
+    const encodedMessage = encodeURIComponent(message);
+    
+    // URL de WhatsApp (funciona en móvil y desktop)
+    const whatsappUrl = `https://api.whatsapp.com/send?text=${encodedMessage}`;
+    
+    // Abrir WhatsApp en una nueva ventana/pestaña
+    window.open(whatsappUrl, '_blank');
+}
+
+// Función para compartir propiedad (general - mantiene la funcionalidad original)
+async function shareProperty() {
+    if (!currentProperty) return;
+    
+    const propertyUrl = generatePropertyUrl(currentProperty.id);
+    const shareData = {
+        title: currentProperty.title,
+        text: `${currentProperty.title} - ${currentProperty.price}\n${currentProperty.description.substring(0, 100)}...`,
+        url: propertyUrl
+    };
+    
+    const btnShare = document.getElementById('btnShare');
+    
+    // Verificar si el navegador soporta Web Share API
+    if (navigator.share) {
+        try {
+            await navigator.share(shareData);
+            console.log('Contenido compartido exitosamente');
+        } catch (err) {
+            if (err.name !== 'AbortError') {
+                console.log('Error al compartir:', err);
+                copyToClipboard(propertyUrl, btnShare);
+            }
+        }
+    } else {
+        copyToClipboard(propertyUrl, btnShare);
+    }
+}
 </script>
