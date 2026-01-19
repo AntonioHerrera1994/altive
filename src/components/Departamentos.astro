@@ -855,23 +855,39 @@ if (btnShare) {
             }
         }
     });
+// Función para generar enlace único de la propiedad (MEJORADA)
+function generatePropertyUrl(propertyId) {
+    // Siempre retornar URL absoluta completa
+    const origin = window.location.origin;
+    const pathname = window.location.pathname;
+    return `${origin}${pathname}#propiedad-${propertyId}`;
+}
 
-    // Función para compartir por WhatsApp
+// Función para compartir por WhatsApp (OPTIMIZADA)
 function shareViaWhatsApp() {
     if (!currentProperty) return;
     
     const propertyUrl = generatePropertyUrl(currentProperty.id);
     
-    // Mensaje personalizado para WhatsApp
-    const message = `🏠 *${currentProperty.title}*\n\n💰 ${currentProperty.price}\n\n📍 ${currentProperty.location.address}\n\n${currentProperty.description.substring(0, 150)}...\n\n🔗 Ver más detalles: ${propertyUrl}`;
+    // Mensaje optimizado con saltos de línea que WhatsApp reconoce
+    const message = `🏠 *${currentProperty.title}*
+
+💰 Precio: ${currentProperty.price}
+
+📍 ${currentProperty.location.address}
+
+${currentProperty.description.substring(0, 100)}...
+
+👉 Ver información completa aquí:
+${propertyUrl}`;
     
-    // Codificar el mensaje para URL
+    // Codificar el mensaje
     const encodedMessage = encodeURIComponent(message);
     
-    // URL de WhatsApp (funciona en móvil y desktop)
+    // URL de WhatsApp
     const whatsappUrl = `https://api.whatsapp.com/send?text=${encodedMessage}`;
     
-    // Abrir WhatsApp en una nueva ventana/pestaña
+    // Abrir WhatsApp
     window.open(whatsappUrl, '_blank');
 }
 
