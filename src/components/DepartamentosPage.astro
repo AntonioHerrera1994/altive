@@ -1239,22 +1239,34 @@ if (btnShare) {
         }
     });
 
-    // Función para compartir por WhatsApp
+   // Función para compartir por WhatsApp
 function shareViaWhatsApp() {
     if (!currentProperty) return;
     
     const propertyUrl = generatePropertyUrl(currentProperty.id);
     
-    // Mensaje personalizado para WhatsApp
-    const message = `🏠 *${currentProperty.title}*\n\n💰 ${currentProperty.price}\n\n📍 ${currentProperty.location.address}\n\n${currentProperty.description.substring(0, 150)}...\n\n🔗 Ver más detalles: ${propertyUrl}`;
+    // Asegurar que la URL sea absoluta
+    const absoluteUrl = propertyUrl.startsWith('http') ? propertyUrl : `https://altive.realty${propertyUrl}`;
+    
+    // Mensaje optimizado - URL separada con líneas en blanco
+    const message = `🏠 *${currentProperty.title}*
+
+💰 ${currentProperty.price}
+
+📍 ${currentProperty.location.address}
+
+${currentProperty.description.substring(0, 120)}...
+
+👉 Ver detalles completos:
+${absoluteUrl}`;
     
     // Codificar el mensaje para URL
     const encodedMessage = encodeURIComponent(message);
     
-    // URL de WhatsApp (funciona en móvil y desktop)
+    // URL de WhatsApp
     const whatsappUrl = `https://api.whatsapp.com/send?text=${encodedMessage}`;
     
-    // Abrir WhatsApp en una nueva ventana/pestaña
+    // Abrir WhatsApp
     window.open(whatsappUrl, '_blank');
 }
 
